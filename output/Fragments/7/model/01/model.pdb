@@ -1,0 +1,311 @@
+TITLE     SWISS-MODEL SERVER (https://swissmodel.expasy.org)
+TITLE    2 Untitled Project
+EXPDTA    THEORETICAL MODEL (SWISS-MODEL SERVER)
+AUTHOR    SWISS-MODEL SERVER (SEE REFERENCE IN JRNL Records)
+REVDAT   1   15-JUL-19 1MOD    1       03:29
+JRNL        AUTH   A.WATERHOUSE,M.BERTONI,S.BIENERT,G.STUDER,G.TAURIELLO,
+JRNL        AUTH 2 R.GUMIENNY,F.T.HEER,T.A.P.DE BEER,C.REMPFER,L.BORDOLI,
+JRNL        AUTH 3 R.LEPORE,T.SCHWEDE
+JRNL        TITL   SWISS-MODEL: HOMOLOGY MODELLING OF PROTEIN STRUCTURES AND
+JRNL        TITL 2 COMPLEXES
+JRNL        REF    NUCLEIC.ACIDS.RES..           V.  46 W296  2018
+JRNL        PMID   29788355
+JRNL        DOI    10.1093/nar/gky427
+REMARK   1
+REMARK   1 REFERENCE 1
+REMARK   1  AUTH   S.BIENERT,A.WATERHOUSE,T.A.P.DE BEER,G.TAURIELLO,G.STUDER,
+REMARK   1  AUTH 2 L.BORDOLI,T.SCHWEDE
+REMARK   1  TITL   THE SWISS-MODEL REPOSITORY - NEW FEATURES AND FUNCTIONALITY
+REMARK   1  REF    NUCLEIC.ACIDS.RES..           V.  22       2017
+REMARK   1  REFN                   ISSN 0305-1048
+REMARK   1  PMID   27899672
+REMARK   1  DOI    10.1093/nar/gkw1132
+REMARK   1
+REMARK   1 REFERENCE 2
+REMARK   1  AUTH   N.GUEX,M.C.PEITSCH,T.SCHWEDE
+REMARK   1  TITL   AUTOMATED COMPARATIVE PROTEIN STRUCTURE MODELING WITH
+REMARK   1  TITL 2 SWISS-MODEL AND SWISS-PDBVIEWER: A HISTORICAL PERSPECTIVE
+REMARK   1  REF    ELECTROPHORESIS               V.  30       2009
+REMARK   1  REFN                   ISSN 0173-0835
+REMARK   1  PMID   19517507
+REMARK   1  DOI    10.1002/elps.200900140
+REMARK   1
+REMARK   1 REFERENCE 3
+REMARK   1  AUTH   P.BENKERT,M.BIASINI,T.SCHWEDE
+REMARK   1  TITL   TOWARD THE ESTIMATION OF THE ABSOLUTE QUALITY OF INDIVIDUAL
+REMARK   1  TITL 2 PROTEIN STRUCTURE MODELS
+REMARK   1  REF    BIOINFORMATICS                V.  27       2011
+REMARK   1  REFN                   ISSN 1367-4803
+REMARK   1  PMID   21134891
+REMARK   1  DOI    10.1093/bioinformatics/btq662
+REMARK   1
+REMARK   1 REFERENCE 4
+REMARK   1  AUTH   M.BERTONI,F.KIEFER,M.BIASINI,L.BORDOLI,T.SCHWEDE
+REMARK   1  TITL   MODELING PROTEIN QUATERNARY STRUCTURE OF HOMO- AND
+REMARK   1  TITL 2 HETERO-OLIGOMERS BEYOND BINARY INTERACTIONS BY HOMOLOGY
+REMARK   1  REF    SCI.REP.                      V.   7       2017
+REMARK   1  REFN                   ISSN
+REMARK   1  PMID   28874689
+REMARK   1  DOI    10.1038/s41598-017-09654-8
+REMARK   1
+REMARK   1 DISCLAIMER
+REMARK   1 The SWISS-MODEL SERVER produces theoretical models for proteins.
+REMARK   1 The results of any theoretical modelling procedure is
+REMARK   1 NON-EXPERIMENTAL and MUST be considered with care. These models may
+REMARK   1 contain significant errors. This is especially true for automated
+REMARK   1 modeling since there is no human intervention during model
+REMARK   1 building. Please read the header section and the logfile carefully
+REMARK   1 to know what templates and alignments were used during the model
+REMARK   1 building process. All information by the SWISS-MODEL SERVER is
+REMARK   1 provided "AS-IS", without any warranty, expressed or implied.
+REMARK   2
+REMARK   2 COPYRIGHT NOTICE
+REMARK   2 This SWISS-MODEL protein model is copyright. It is produced by the
+REMARK   2 SWISS-MODEL server, developed by the Computational Structural
+REMARK   2 Biology Group at the SIB Swiss Institute of Bioinformatics at the
+REMARK   2 Biozentrum, University of Basel (https://swissmodel.expasy.org). This
+REMARK   2 model is licensed under the CC BY-SA 4.0 Creative Commons
+REMARK   2 Attribution-ShareAlike 4.0 International License
+REMARK   2 (https://creativecommons.org/licenses/by-sa/4.0/legalcode), i.e. you
+REMARK   2 can copy and redistribute the model in any medium or format,
+REMARK   2 transform and build upon the model for any purpose, even
+REMARK   2 commercially, under the following terms:
+REMARK   2 Attribution - You must give appropriate credit, provide a link to
+REMARK   2 the license, and indicate if changes were made. You may do so in any
+REMARK   2 reasonable manner, but not in any way that suggests the licensor
+REMARK   2 endorses you or your use. When you publish, patent or distribute
+REMARK   2 results that were fully or partially based on the model, please cite
+REMARK   2 the corresponding papers mentioned under JRNL.
+REMARK   2 ShareAlike - If you remix, transform, or build upon the material,
+REMARK   2 you must distribute your contributions under the same license as the
+REMARK   2 original.
+REMARK   2 No additional restrictions - you may not apply legal terms or
+REMARK   2 technological measures that legally restrict others from doing
+REMARK   2 anything the license permits.
+REMARK   2 Find a human-readable summary of (and not a substitute for) the
+REMARK   2 CC BY-SA 4.0 license at this link:
+REMARK   2 https://creativecommons.org/licenses/by-sa/4.0/
+REMARK   3 
+REMARK   3 MODEL INFORMATION
+REMARK   3  ENGIN   PROMOD3
+REMARK   3  VERSN   1.3.0
+REMARK   3  OSTAT   monomer
+REMARK   3  OSRSN   PREDICTION
+REMARK   3  QSPRD   0.380
+REMARK   3  QMN4    -3.88
+REMARK   3  MODT    FALSE
+REMARK   3 
+REMARK   3 TEMPLATE 1
+REMARK   3  PDBID   6hjq
+REMARK   3  CHAIN   B
+REMARK   3  MMCIF   B
+REMARK   3  PDBV    2019-07-05
+REMARK   3  SMTLE   6hjq.1.B
+REMARK   3  SMTLV   2019-07-11
+REMARK   3  MTHD    ELECTRON MICROSCOPY 0.00 A
+REMARK   3  FOUND   BLAST
+REMARK   3  SIM     0.53
+REMARK   3  SID     86.36
+REMARK   3  OSTAT   homo-trimer
+REMARK   3  LIGND   NAG
+REMARK   3  LIGND 2 NAG
+REMARK   3  LIGND 3 NAG
+REMARK   3  LIGND 4 NAG
+REMARK   3  LIGND 5 NAG
+REMARK   3  LIGND 6 NAG
+REMARK   3  LIGND 7 NAG
+REMARK   3  LIGND 8 NAG
+REMARK   3  LIGND 9 NAG
+REMARK   3  LIGND 10 NAG
+REMARK   3  LIGND 11 NAG
+REMARK   3  LIGND 12 NAG
+REMARK   3  LIGND 13 NAG
+REMARK   3  LIGND 14 NAG
+REMARK   3  LIGND 15 NAG
+REMARK   3  LIGND 16 NAG
+REMARK   3  LIGND 17 NAG
+REMARK   3  LIGND 18 NAG
+REMARK   3  LIGND 19 NAG
+REMARK   3  LIGND 20 NAG
+REMARK   3  LIGND 21 NAG
+REMARK   3  LIGND 22 FUC
+REMARK   3  LIGND 23 FUC
+REMARK   3  LIGND 24 FUC
+REMARK   3  ALN B TRG IDGVKLESTRIYQILAIYSTVASSLVLVVSLGAISFWMCSNGSLQCRICI
+REMARK   3  ALN B TPL IDGVKLESMGVYQILAIYSTVA----------------------------
+REMARK   3  ALN B OFF 172
+ATOM      1  N   ILE B   1     286.881 274.281 246.112  1.00  0.25           N  
+ATOM      2  CA  ILE B   1     287.164 273.042 246.914  1.00  0.25           C  
+ATOM      3  C   ILE B   1     286.294 271.891 246.461  1.00  0.25           C  
+ATOM      4  O   ILE B   1     286.800 271.016 245.777  1.00  0.25           O  
+ATOM      5  CB  ILE B   1     287.125 273.359 248.410  1.00  0.25           C  
+ATOM      6  CG1 ILE B   1     288.173 274.455 248.781  1.00  0.25           C  
+ATOM      7  CG2 ILE B   1     287.342 272.076 249.254  1.00  0.25           C  
+ATOM      8  CD1 ILE B   1     289.634 274.120 248.430  1.00  0.25           C  
+ATOM      9  N   ASP B   2     284.979 271.891 246.737  1.00  0.30           N  
+ATOM     10  CA  ASP B   2     284.039 270.935 246.214  1.00  0.30           C  
+ATOM     11  C   ASP B   2     283.503 271.474 244.875  1.00  0.30           C  
+ATOM     12  O   ASP B   2     283.836 270.991 243.793  1.00  0.30           O  
+ATOM     13  CB  ASP B   2     282.946 270.749 247.328  1.00  0.30           C  
+ATOM     14  CG  ASP B   2     282.345 272.033 247.920  1.00  0.30           C  
+ATOM     15  OD1 ASP B   2     282.844 273.148 247.591  1.00  0.30           O  
+ATOM     16  OD2 ASP B   2     281.396 271.901 248.720  1.00  0.30           O  
+ATOM     17  N   GLY B   3     282.767 272.604 244.921  1.00  0.29           N  
+ATOM     18  CA  GLY B   3     282.128 273.253 243.781  1.00  0.29           C  
+ATOM     19  C   GLY B   3     281.145 272.399 243.012  1.00  0.29           C  
+ATOM     20  O   GLY B   3     280.823 271.279 243.369  1.00  0.29           O  
+ATOM     21  N   VAL B   4     280.665 272.938 241.874  1.00  0.33           N  
+ATOM     22  CA  VAL B   4     279.957 272.167 240.863  1.00  0.33           C  
+ATOM     23  C   VAL B   4     280.866 272.074 239.642  1.00  0.33           C  
+ATOM     24  O   VAL B   4     280.529 271.539 238.591  1.00  0.33           O  
+ATOM     25  CB  VAL B   4     278.621 272.814 240.507  1.00  0.33           C  
+ATOM     26  CG1 VAL B   4     277.729 272.784 241.767  1.00  0.33           C  
+ATOM     27  CG2 VAL B   4     278.805 274.255 239.982  1.00  0.33           C  
+ATOM     28  N   LYS B   5     282.107 272.594 239.755  1.00  0.34           N  
+ATOM     29  CA  LYS B   5     283.086 272.654 238.679  1.00  0.34           C  
+ATOM     30  C   LYS B   5     283.582 271.294 238.215  1.00  0.34           C  
+ATOM     31  O   LYS B   5     283.830 271.095 237.025  1.00  0.34           O  
+ATOM     32  CB  LYS B   5     284.289 273.556 239.047  1.00  0.34           C  
+ATOM     33  CG  LYS B   5     283.902 275.039 239.171  1.00  0.34           C  
+ATOM     34  CD  LYS B   5     285.112 275.911 239.552  1.00  0.34           C  
+ATOM     35  CE  LYS B   5     284.778 277.406 239.667  1.00  0.34           C  
+ATOM     36  NZ  LYS B   5     285.971 278.190 240.071  1.00  0.34           N  
+ATOM     37  N   LEU B   6     283.734 270.326 239.142  1.00  0.30           N  
+ATOM     38  CA  LEU B   6     284.067 268.945 238.833  1.00  0.30           C  
+ATOM     39  C   LEU B   6     282.967 268.221 238.072  1.00  0.30           C  
+ATOM     40  O   LEU B   6     283.264 267.401 237.208  1.00  0.30           O  
+ATOM     41  CB  LEU B   6     284.442 268.144 240.102  1.00  0.30           C  
+ATOM     42  CG  LEU B   6     285.752 268.599 240.780  1.00  0.30           C  
+ATOM     43  CD1 LEU B   6     285.920 267.844 242.107  1.00  0.30           C  
+ATOM     44  CD2 LEU B   6     286.986 268.382 239.882  1.00  0.30           C  
+ATOM     45  N   GLU B   7     281.680 268.515 238.357  1.00  0.33           N  
+ATOM     46  CA  GLU B   7     280.539 268.078 237.566  1.00  0.33           C  
+ATOM     47  C   GLU B   7     280.527 268.703 236.175  1.00  0.33           C  
+ATOM     48  O   GLU B   7     280.238 268.034 235.183  1.00  0.33           O  
+ATOM     49  CB  GLU B   7     279.212 268.418 238.281  1.00  0.33           C  
+ATOM     50  CG  GLU B   7     278.997 267.603 239.577  1.00  0.33           C  
+ATOM     51  CD  GLU B   7     277.694 267.962 240.290  1.00  0.33           C  
+ATOM     52  OE1 GLU B   7     277.041 268.961 239.896  1.00  0.33           O  
+ATOM     53  OE2 GLU B   7     277.356 267.223 241.250  1.00  0.33           O  
+ATOM     54  N   SER B   8     280.856 270.010 236.076  1.00  0.37           N  
+ATOM     55  CA  SER B   8     280.961 270.757 234.817  1.00  0.37           C  
+ATOM     56  C   SER B   8     282.072 270.333 233.874  1.00  0.37           C  
+ATOM     57  O   SER B   8     281.908 270.402 232.657  1.00  0.37           O  
+ATOM     58  CB  SER B   8     281.158 272.283 235.007  1.00  0.37           C  
+ATOM     59  OG  SER B   8     280.041 272.847 235.693  1.00  0.37           O  
+ATOM     60  N   THR B   9     283.251 269.975 234.401  1.00  0.38           N  
+ATOM     61  CA  THR B   9     284.422 269.398 233.717  1.00  0.38           C  
+ATOM     62  C   THR B   9     285.203 270.254 232.726  1.00  0.38           C  
+ATOM     63  O   THR B   9     286.346 269.895 232.462  1.00  0.38           O  
+ATOM     64  CB  THR B   9     284.280 267.993 233.103  1.00  0.38           C  
+ATOM     65  OG1 THR B   9     283.518 267.951 231.907  1.00  0.38           O  
+ATOM     66  CG2 THR B   9     283.609 267.056 234.106  1.00  0.38           C  
+ATOM     67  N   ARG B  10     284.609 271.376 232.213  1.00  0.34           N  
+ATOM     68  CA  ARG B  10     285.138 272.402 231.294  1.00  0.34           C  
+ATOM     69  C   ARG B  10     284.173 272.757 230.163  1.00  0.34           C  
+ATOM     70  O   ARG B  10     284.078 273.920 229.776  1.00  0.34           O  
+ATOM     71  CB  ARG B  10     286.474 271.996 230.638  1.00  0.34           C  
+ATOM     72  CG  ARG B  10     287.163 272.919 229.637  1.00  0.34           C  
+ATOM     73  CD  ARG B  10     288.440 272.193 229.249  1.00  0.34           C  
+ATOM     74  NE  ARG B  10     289.082 273.081 228.258  1.00  0.34           N  
+ATOM     75  CZ  ARG B  10     290.240 272.821 227.646  1.00  0.34           C  
+ATOM     76  NH1 ARG B  10     290.702 273.710 226.772  1.00  0.34           N  
+ATOM     77  NH2 ARG B  10     290.928 271.712 227.886  1.00  0.34           N  
+ATOM     78  N   ILE B  11     283.431 271.782 229.600  1.00  0.30           N  
+ATOM     79  CA  ILE B  11     282.569 271.982 228.437  1.00  0.30           C  
+ATOM     80  C   ILE B  11     281.193 271.472 228.800  1.00  0.30           C  
+ATOM     81  O   ILE B  11     280.891 271.230 229.968  1.00  0.30           O  
+ATOM     82  CB  ILE B  11     283.085 271.359 227.120  1.00  0.30           C  
+ATOM     83  CG1 ILE B  11     283.350 269.836 227.228  1.00  0.30           C  
+ATOM     84  CG2 ILE B  11     284.346 272.136 226.679  1.00  0.30           C  
+ATOM     85  CD1 ILE B  11     283.653 269.169 225.876  1.00  0.30           C  
+ATOM     86  N   TYR B  12     280.273 271.329 227.835  1.00  0.32           N  
+ATOM     87  CA  TYR B  12     278.987 270.717 228.098  1.00  0.32           C  
+ATOM     88  C   TYR B  12     279.091 269.208 227.957  1.00  0.32           C  
+ATOM     89  O   TYR B  12     280.136 268.697 227.564  1.00  0.32           O  
+ATOM     90  CB  TYR B  12     277.916 271.263 227.132  1.00  0.32           C  
+ATOM     91  CG  TYR B  12     276.540 271.232 227.746  1.00  0.32           C  
+ATOM     92  CD1 TYR B  12     276.242 271.755 229.019  1.00  0.32           C  
+ATOM     93  CD2 TYR B  12     275.497 270.700 226.991  1.00  0.32           C  
+ATOM     94  CE1 TYR B  12     274.922 271.755 229.495  1.00  0.32           C  
+ATOM     95  CE2 TYR B  12     274.168 270.776 227.420  1.00  0.32           C  
+ATOM     96  CZ  TYR B  12     273.885 271.291 228.683  1.00  0.32           C  
+ATOM     97  OH  TYR B  12     272.559 271.336 229.146  1.00  0.32           O  
+ATOM     98  N   GLN B  13     278.007 268.453 228.249  1.00  0.36           N  
+ATOM     99  CA  GLN B  13     278.016 266.992 228.250  1.00  0.36           C  
+ATOM    100  C   GLN B  13     278.507 266.404 226.948  1.00  0.36           C  
+ATOM    101  O   GLN B  13     279.518 265.697 226.901  1.00  0.36           O  
+ATOM    102  CB  GLN B  13     276.584 266.416 228.498  1.00  0.36           C  
+ATOM    103  CG  GLN B  13     275.719 267.245 229.479  1.00  0.36           C  
+ATOM    104  CD  GLN B  13     274.894 266.377 230.429  1.00  0.36           C  
+ATOM    105  OE1 GLN B  13     274.526 265.231 230.138  1.00  0.36           O  
+ATOM    106  NE2 GLN B  13     274.592 266.929 231.622  1.00  0.36           N  
+ATOM    107  N   ILE B  14     277.824 266.800 225.864  1.00  0.33           N  
+ATOM    108  CA  ILE B  14     278.167 266.475 224.497  1.00  0.33           C  
+ATOM    109  C   ILE B  14     277.596 267.495 223.509  1.00  0.33           C  
+ATOM    110  O   ILE B  14     277.686 267.278 222.290  1.00  0.33           O  
+ATOM    111  CB  ILE B  14     277.692 265.077 224.065  1.00  0.33           C  
+ATOM    112  CG1 ILE B  14     276.181 264.823 224.296  1.00  0.33           C  
+ATOM    113  CG2 ILE B  14     278.593 263.975 224.676  1.00  0.33           C  
+ATOM    114  CD1 ILE B  14     275.751 263.507 223.638  1.00  0.33           C  
+ATOM    115  N   LEU B  15     277.030 268.669 223.856  1.00  0.34           N  
+ATOM    116  CA  LEU B  15     276.412 269.523 222.828  1.00  0.34           C  
+ATOM    117  C   LEU B  15     277.367 270.163 221.835  1.00  0.34           C  
+ATOM    118  O   LEU B  15     276.986 270.442 220.705  1.00  0.34           O  
+ATOM    119  CB  LEU B  15     275.509 270.646 223.365  1.00  0.34           C  
+ATOM    120  CG  LEU B  15     274.064 270.203 223.687  1.00  0.34           C  
+ATOM    121  CD1 LEU B  15     273.245 270.233 222.387  1.00  0.34           C  
+ATOM    122  CD2 LEU B  15     273.878 268.830 224.370  1.00  0.34           C  
+ATOM    123  N   ALA B  16     278.643 270.350 222.222  1.00  0.33           N  
+ATOM    124  CA  ALA B  16     279.704 270.742 221.319  1.00  0.33           C  
+ATOM    125  C   ALA B  16     279.953 269.693 220.221  1.00  0.33           C  
+ATOM    126  O   ALA B  16     280.384 270.020 219.121  1.00  0.33           O  
+ATOM    127  CB  ALA B  16     280.989 271.068 222.110  1.00  0.33           C  
+ATOM    128  N   ILE B  17     279.621 268.394 220.467  1.00  0.26           N  
+ATOM    129  CA  ILE B  17     279.545 267.377 219.417  1.00  0.26           C  
+ATOM    130  C   ILE B  17     278.459 267.736 218.424  1.00  0.26           C  
+ATOM    131  O   ILE B  17     278.733 267.830 217.231  1.00  0.26           O  
+ATOM    132  CB  ILE B  17     279.285 265.959 219.955  1.00  0.26           C  
+ATOM    133  CG1 ILE B  17     280.490 265.524 220.825  1.00  0.26           C  
+ATOM    134  CG2 ILE B  17     278.932 264.947 218.828  1.00  0.26           C  
+ATOM    135  CD1 ILE B  17     280.349 264.135 221.455  1.00  0.26           C  
+ATOM    136  N   TYR B  18     277.228 268.043 218.878  1.00  0.24           N  
+ATOM    137  CA  TYR B  18     276.109 268.418 218.014  1.00  0.24           C  
+ATOM    138  C   TYR B  18     276.399 269.678 217.197  1.00  0.24           C  
+ATOM    139  O   TYR B  18     275.903 269.796 216.068  1.00  0.24           O  
+ATOM    140  CB  TYR B  18     274.757 268.509 218.804  1.00  0.24           C  
+ATOM    141  CG  TYR B  18     273.628 269.208 218.051  1.00  0.24           C  
+ATOM    142  CD1 TYR B  18     272.913 268.610 216.992  1.00  0.24           C  
+ATOM    143  CD2 TYR B  18     273.342 270.545 218.376  1.00  0.24           C  
+ATOM    144  CE1 TYR B  18     271.895 269.319 216.331  1.00  0.24           C  
+ATOM    145  CE2 TYR B  18     272.330 271.254 217.711  1.00  0.24           C  
+ATOM    146  CZ  TYR B  18     271.586 270.628 216.704  1.00  0.24           C  
+ATOM    147  OH  TYR B  18     270.526 271.287 216.046  1.00  0.24           O  
+ATOM    148  N   SER B  19     277.176 270.652 217.682  1.00  0.32           N  
+ATOM    149  CA  SER B  19     277.503 271.850 216.922  1.00  0.32           C  
+ATOM    150  C   SER B  19     278.708 271.703 215.992  1.00  0.32           C  
+ATOM    151  O   SER B  19     278.827 272.461 215.038  1.00  0.32           O  
+ATOM    152  CB  SER B  19     277.706 273.068 217.853  1.00  0.32           C  
+ATOM    153  OG  SER B  19     278.728 272.824 218.821  1.00  0.32           O  
+ATOM    154  N   THR B  20     279.603 270.711 216.220  1.00  0.32           N  
+ATOM    155  CA  THR B  20     280.535 270.137 215.229  1.00  0.32           C  
+ATOM    156  C   THR B  20     279.830 269.331 214.138  1.00  0.32           C  
+ATOM    157  O   THR B  20     280.266 269.285 212.994  1.00  0.32           O  
+ATOM    158  CB  THR B  20     281.572 269.210 215.872  1.00  0.32           C  
+ATOM    159  OG1 THR B  20     282.471 269.953 216.678  1.00  0.32           O  
+ATOM    160  CG2 THR B  20     282.469 268.478 214.857  1.00  0.32           C  
+ATOM    161  N   VAL B  21     278.761 268.597 214.516  1.00  0.31           N  
+ATOM    162  CA  VAL B  21     277.859 267.831 213.654  1.00  0.31           C  
+ATOM    163  C   VAL B  21     276.919 268.688 212.773  1.00  0.31           C  
+ATOM    164  O   VAL B  21     276.584 268.283 211.669  1.00  0.31           O  
+ATOM    165  CB  VAL B  21     277.068 266.795 214.475  1.00  0.31           C  
+ATOM    166  CG1 VAL B  21     275.997 266.054 213.649  1.00  0.31           C  
+ATOM    167  CG2 VAL B  21     278.038 265.735 215.041  1.00  0.31           C  
+ATOM    168  N   ALA B  22     276.446 269.852 213.290  1.00  0.38           N  
+ATOM    169  CA  ALA B  22     275.678 270.879 212.592  1.00  0.38           C  
+ATOM    170  C   ALA B  22     276.489 271.790 211.621  1.00  0.38           C  
+ATOM    171  O   ALA B  22     277.737 271.673 211.535  1.00  0.38           O  
+ATOM    172  CB  ALA B  22     274.997 271.811 213.632  1.00  0.38           C  
+ATOM    173  OXT ALA B  22     275.827 272.633 210.949  1.00  0.38           O  
+TER     174      ALA B  22                                                      
+END   

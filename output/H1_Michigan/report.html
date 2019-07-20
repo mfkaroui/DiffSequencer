@@ -1,0 +1,1728 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Untitled Project | Report</title>
+    <meta name="description" content="SWISS-MODEL modelling results for Untitled Project." />
+    <link rel="stylesheet" type="text/css" href="js/jquery.fancybox.css"/>
+    <style>
+			.sequence { font-size: 12px; font-family:"Courier New", Courier, monospace;}
+			h2 {font-size: 1.2em; font-family:Arial; margin:20 0 0 0}
+			h3 {font-size: 1.0em; font-family:Arial; margin:0 0 0 0}
+			
+			.borderedTbl>tbody>tr>td, .borderedTbl th{ 
+        text-align:center;
+  			border-top:1px solid #DDD;
+  			border-left:1px solid #DDD;
+      }
+      .borderedTbl{
+        border-bottom:1px solid #DDD;
+        border-right:1px solid #DDD; 
+      }
+      td { 
+        -webkit-hyphens: auto;
+           -moz-hyphens: auto;
+                hyphens: auto; 
+              }
+
+			body {
+			width:100%; 
+			height:100%; 
+			background-color: #E7E8EA;
+			margin: 0;
+			padding: 0;
+			word-wrap: break-word;
+			font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+      font-size: 14px;
+
+			}
+			#content{
+			padding:20px;
+			width:780px;
+			margin-left:auto;
+			margin-right:auto;
+			background-color:#FFF;}
+			
+			#sib_footer {
+			background-color: #333333;
+			color: #F7F8FA;
+			font-family: Verdana;
+			font-size: 10px;
+			font-weight: normal;
+			height: 20px;
+			letter-spacing: 1px;
+			
+			width:760px;
+      margin-left:auto;
+      margin-right:auto;
+      padding:0px 20px 0px 20px
+			}
+			
+			#sib_footer a {
+  			color: #FFFFFF;
+  			font-family: Verdana;
+  			font-size: 10px;
+  			font-weight: normal;
+  			letter-spacing: 1px;
+			}
+			a, a:link, a:visited {
+			color: #D6161D;
+			text-decoration: none;
+			} 	
+
+			.alTbl{ font-family:'Courier New', Courier, monospace; }
+	   img{ border:0; }
+			
+	@media print{
+	
+	#content{
+			padding:20px;
+			background-color:#FFF;
+		}
+	body{ 
+	    width:100%;
+	    height:100%; 
+	    background-color: #FFF;
+			padding: 0;
+		}	
+	#sib_footer{
+		display:none;
+	}
+	}
+      
+    </style>
+  </head>
+  <body>
+  
+  <div id="content">
+  	<table border=0 width="100%">
+  		<tr>
+    		<td valign="middle">
+  			<a title="SIB Swiss Institute of Bioinformatics" href="https://www.sib.swiss">
+  			<img src="images/sib_ExPASy_logo_small.png"></a>
+  		</td>
+  		<td valign="middle">
+  			<a title="Biozentrum, University of Basel" href="https://www.biozentrum.unibas.ch">
+  			<img src="images/biozentrum_en.png"></a>
+  		</td>
+		  <td valign="middle"><div style="font-size:1.9em;">SWISS-MODEL Homology Modelling Report</div> </td>
+	 </tr>
+	</table> 
+    
+  <div style="clear:both"></div>
+
+
+ 
+  <h2>Model Building Report</h2>
+  <p>
+This document lists the results for the homology modelling project &quot;Untitled Project&quot; submitted to SWISS-MODEL workspace
+on July 15, 2019, 3:22 a.m..The submitted primary amino acid sequence is given in Table T1.</p>
+<p>If you use any results in your research, please cite the relevant publications:</p>
+<ul>
+  <li>Waterhouse, A., Bertoni, M., Bienert, S., Studer, G., Tauriello, G., Gumienny, R.,
+      Heer, F.T., de Beer, T.A.P., Rempfer, C., Bordoli, L., Lepore, R., Schwede, T.   
+      SWISS-MODEL: homology modelling of protein structures and complexes.
+      Nucleic Acids Res. 46(W1), W296-W303 (2018).
+    <a href="https://www.ncbi.nlm.nih.gov/pubmed/29788355"
+       target="_blank"><img src="images/pubmed.jpg
+                                 "
+                            width="17" height="16" align="absmiddle"></a>
+    <a href="https://dx.doi.org/10.1093/nar/gky427"
+       target="_blank"><img src="images/doi.jpg
+                                 "
+                            width="30" height="16" align="absmiddle"
+                            style="padding-left:2px"></a>
+  </li>
+      <li><a name="promodII"></a>Guex, N., Peitsch, M.C., Schwede, T. Automated
+          comparative protein structure modeling with SWISS-MODEL and
+          Swiss-PdbViewer: A historical perspective. Electrophoresis 30,
+          S162-S173 (2009).
+    <a href="https://www.ncbi.nlm.nih.gov/pubmed/19517507"
+       target="_blank"><img src="images/pubmed.jpg
+                                 "
+                            width="17" height="16" align="absmiddle"></a>
+    <a href="https://dx.doi.org/10.1002/elps.200900140"
+       target="_blank"><img src="images/doi.jpg
+                                 "
+                            width="30" height="16" align="absmiddle"
+                            style="padding-left:2px"></a>
+  </li>
+  <li>Bienert, S., Waterhouse, A., de Beer, T.A.P., Tauriello, G., Studer,
+    G., Bordoli, L., Schwede, T. The SWISS-MODEL Repository - new features and
+    functionality. Nucleic Acids Res. 45, D313-D319 (2017).
+    <a href="https://www.ncbi.nlm.nih.gov/pubmed/27899672"
+       target="_blank"><img src="images/pubmed.jpg
+                                 "
+                            width="17" height="16" align="absmiddle"></a>
+    <a href="https://dx.doi.org/10.1093/nar/gkw1132"
+       target="_blank"><img src="images/doi.jpg
+                                 "
+                            width="30" height="16" align="absmiddle"
+                            style="padding-left:2px"></a>
+  </li>
+      <li><a name="qmean"></a>Benkert, P., Biasini, M., Schwede, T. Toward the
+        estimation of the absolute quality of individual protein structure
+        models. Bioinformatics 27,
+        343-350 (2011).
+    <a href="https://www.ncbi.nlm.nih.gov/pubmed/21134891"
+       target="_blank"><img src="images/pubmed.jpg
+                                 "
+                            width="17" height="16" align="absmiddle"></a>
+    <a href="https://dx.doi.org/10.1093/bioinformatics/btq662"
+       target="_blank"><img src="images/doi.jpg
+                                 "
+                            width="30" height="16" align="absmiddle"
+                            style="padding-left:2px"></a>
+  </li>
+      <li><a name="qsqe"></a>Bertoni, M., Kiefer, F., Biasini, M., Bordoli, L.,
+        Schwede, T. Modeling protein quaternary structure of homo- and
+        hetero-oligomers beyond binary interactions by homology. Scientific
+        Reports 7 (2017).
+    <a href="https://www.ncbi.nlm.nih.gov/pubmed/28874689"
+       target="_blank"><img src="images/pubmed.jpg
+                                 "
+                            width="17" height="16" align="absmiddle"></a>
+    <a href="https://dx.doi.org/10.1038/s41598-017-09654-8"
+       target="_blank"><img src="images/doi.jpg
+                                 "
+                            width="30" height="16" align="absmiddle"
+                            style="padding-left:2px"></a>
+  </li>
+</ul>
+
+
+<h2>Results</h2><p>
+The SWISS-MODEL template library (SMTL version 2019-07-11, PDB release 2019-07-05) was searched with 
+BLAST (<a href="#blastp">Camacho et al.</a>) and HHBlits (<a href="#hhblits">Remmert et al.</a>) 
+
+ for evolutionary related structures matching the target sequence in Table T1. For details on the template search, see Materials and Methods. Overall 1638 templates were found (Table T2).</p>
+
+<h2>Models</h2>
+
+
+<p>The following model was built (see Materials and Methods "Model Building"):</p>
+
+
+      
+      <table class="borderedTbl" width="100%" border=0 cellspacing=1 cellpadding=5>
+  		<thead>
+        <tr>
+        <th><h3>Model #01</h3></th>
+        <th>File</th>
+        <th>Built with</th>
+        <th>Oligo-State</th>
+        <th>Ligands</th>
+        <th title="Global Model Quality Estimate">GMQE</th>
+        <th>QMEAN</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td><a href="model/01/01.png" target="_blank"><img height="60" src="model/01/01.png"></a>
+  </td>
+  	    <td><a href="model/01/model.pdb" target="_blank">PDB</a></td>
+  		<td>
+      ProMod3 Version 1.3.0.
+      </td>
+        <td>homo-trimer 
+             
+             (matching prediction)
+             
+          </td>
+        <td><div style="max-width:350px;">None</div></td>
+        <td>0.81</td>
+        <td>-0.11</td>
+      </tr>
+     </table>
+  	
+  	<table width="100%" cellspacing=5>
+  	<tr>
+  	    <td width="30%">
+       	 <table id="qmeanGlobalTbl01"></table>
+        </td>
+          <td width="33%">
+            <a href="#lq-chart-01" rel="lq-01" class="fancybox">
+              <div id="lq-chart-01-thumb" style="margin:12px 4px;"></div>
+            </a>
+            <div id="lq-chart-01" style="display:none"></div>
+          </td>
+
+          <td width="33%">
+            <a href="#qn-chart-01" class="fancybox">
+              <div id="qn-chart-01-thumb" style="margin:12px 4px;"></div>
+            </a>
+            <div id="qn-chart-01" style="display:none"></div>
+          </td>
+  	 </tr>
+  	</table>
+
+
+  	<table class="borderedTbl">
+  		<thead>
+  			<tr>
+  				<th>Template</th>
+  				<th>Seq Identity</th>
+  				<th>Oligo-state</th>
+  				<th>QSQE</th>
+  				<th>Found by</th>
+  				<th>Method</th>
+  				<th>Resolution</th>
+  				<th>Seq Similarity</th>
+  				<th>Range</th>
+  				<th>Coverage</th>
+  				<th>Description</th>
+  			</tr>
+  		</thead>
+  		<tbody>
+  			
+        <tr>
+  				<td><a href="model/01/templates/6n41.1.B.pdb.gz" target="_blank" >6n41.1.B</a></td>
+  				<td>79.67</td>
+  				<td>homo-trimer</td>
+  				<td>0.78</td>
+  				<td>BLAST</td>
+  				<td>X-ray</td>
+  				<td>2.50&Aring;</td>
+  				<td>0.56</td>
+  				<td>1 - 490</td>
+  				<td>0.90</td>
+  				<td>Hemagglutinin</td>
+  			</tr>
+  		</tbody>
+  	</table> 
+  	
+
+    
+    <br>
+  	<table width="100%" class="borderedTbl">
+  		<thead>
+  			<tr>
+	  			<th>Ligand</th>
+	  			<th>Added to Model</th>
+	  			<th>Description</th>
+	  		</tr>
+	  	</thead>
+		<tbody>
+	  
+	  
+      
+	  
+      
+	  
+      
+	  
+      
+	  
+      
+	  
+      
+	  
+      
+	  
+      
+	  
+      
+	  
+      
+	  
+      
+	  
+      
+	  
+      
+	  
+      
+	  
+      
+	  
+      
+	  
+      
+	  
+      
+	  
+      
+	  
+      
+	  
+      
+	  
+      
+	  
+      
+	  
+      
+	  
+      
+	  
+      
+	  
+      
+	  
+      
+	  
+      
+	  
+      
+	  
+      
+	  
+      
+	  
+      
+	  
+      
+	  
+      
+	  
+      
+	  
+      
+	  
+      
+	  
+      
+	  
+      
+	  
+      
+	  
+      
+	  
+      
+	  
+      
+	  
+      
+	  
+      
+	  
+      
+	  
+      
+
+      
+      
+      <tr><td>BMA</td><td>&#10005; -
+      Not in contact with model.
+      
+      </td>
+      <td><div style="max-width:650px;">BETA-D-MANNOSE</div></td>
+      </tr>
+      
+      
+      
+      <tr><td>BMA</td><td>&#10005; -
+      
+        Binding site not conserved. 
+          
+        
+      
+      </td>
+      <td><div style="max-width:650px;">BETA-D-MANNOSE</div></td>
+      </tr>
+      
+      
+      
+      <tr><td>BMA</td><td>&#10005; -
+      
+        Binding site not conserved. 
+          
+        
+      
+      </td>
+      <td><div style="max-width:650px;">BETA-D-MANNOSE</div></td>
+      </tr>
+      
+      
+      
+      <tr><td>EDO</td><td>&#10005; -
+      
+        Not biologically relevant.
+        
+      
+      </td>
+      <td><div style="max-width:650px;">1,2-ETHANEDIOL</div></td>
+      </tr>
+      
+      
+      
+      <tr><td>EDO</td><td>&#10005; -
+      
+        Not biologically relevant.
+        
+      
+      </td>
+      <td><div style="max-width:650px;">1,2-ETHANEDIOL</div></td>
+      </tr>
+      
+      
+      
+      <tr><td>EDO</td><td>&#10005; -
+      
+        Not biologically relevant.
+        
+      
+      </td>
+      <td><div style="max-width:650px;">1,2-ETHANEDIOL</div></td>
+      </tr>
+      
+      
+      
+      <tr><td>EDO</td><td>&#10005; -
+      
+        Not biologically relevant.
+        
+      
+      </td>
+      <td><div style="max-width:650px;">1,2-ETHANEDIOL</div></td>
+      </tr>
+      
+      
+      
+      <tr><td>EDO</td><td>&#10005; -
+      
+        Not biologically relevant.
+        
+      
+      </td>
+      <td><div style="max-width:650px;">1,2-ETHANEDIOL</div></td>
+      </tr>
+      
+      
+      
+      <tr><td>EDO</td><td>&#10005; -
+      
+        Not biologically relevant.
+        
+      
+      </td>
+      <td><div style="max-width:650px;">1,2-ETHANEDIOL</div></td>
+      </tr>
+      
+      
+      
+      <tr><td>EDO</td><td>&#10005; -
+      
+        Not biologically relevant.
+        
+      
+      </td>
+      <td><div style="max-width:650px;">1,2-ETHANEDIOL</div></td>
+      </tr>
+      
+      
+      
+      <tr><td>EDO</td><td>&#10005; -
+      
+        Not biologically relevant.
+        
+      
+      </td>
+      <td><div style="max-width:650px;">1,2-ETHANEDIOL</div></td>
+      </tr>
+      
+      
+      
+      <tr><td>EDO</td><td>&#10005; -
+      
+        Not biologically relevant.
+        
+      
+      </td>
+      <td><div style="max-width:650px;">1,2-ETHANEDIOL</div></td>
+      </tr>
+      
+      
+      
+      <tr><td>EDO</td><td>&#10005; -
+      
+        Not biologically relevant.
+        
+      
+      </td>
+      <td><div style="max-width:650px;">1,2-ETHANEDIOL</div></td>
+      </tr>
+      
+      
+      
+      <tr><td>EDO</td><td>&#10005; -
+      
+        Not biologically relevant.
+        
+      
+      </td>
+      <td><div style="max-width:650px;">1,2-ETHANEDIOL</div></td>
+      </tr>
+      
+      
+      
+      <tr><td>EDO</td><td>&#10005; -
+      
+        Not biologically relevant.
+        
+      
+      </td>
+      <td><div style="max-width:650px;">1,2-ETHANEDIOL</div></td>
+      </tr>
+      
+      
+      
+      <tr><td>EDO</td><td>&#10005; -
+      
+        Not biologically relevant.
+        
+      
+      </td>
+      <td><div style="max-width:650px;">1,2-ETHANEDIOL</div></td>
+      </tr>
+      
+      
+      
+      <tr><td>EDO</td><td>&#10005; -
+      
+        Not biologically relevant.
+        
+      
+      </td>
+      <td><div style="max-width:650px;">1,2-ETHANEDIOL</div></td>
+      </tr>
+      
+      
+      
+      <tr><td>MAN</td><td>&#10005; -
+      Not in contact with model.
+      
+      </td>
+      <td><div style="max-width:650px;">ALPHA-D-MANNOSE</div></td>
+      </tr>
+      
+      
+      
+      <tr><td>MAN</td><td>&#10005; -
+      Not in contact with model.
+      
+      </td>
+      <td><div style="max-width:650px;">ALPHA-D-MANNOSE</div></td>
+      </tr>
+      
+      
+      
+      <tr><td>MAN</td><td>&#10005; -
+      Not in contact with model.
+      
+      </td>
+      <td><div style="max-width:650px;">ALPHA-D-MANNOSE</div></td>
+      </tr>
+      
+      
+      
+      <tr><td>MAN</td><td>&#10005; -
+      Not in contact with model.
+      
+      </td>
+      <td><div style="max-width:650px;">ALPHA-D-MANNOSE</div></td>
+      </tr>
+      
+      
+      
+      <tr><td>MAN</td><td>&#10005; -
+      
+        Binding site not conserved. 
+          
+        
+      
+      </td>
+      <td><div style="max-width:650px;">ALPHA-D-MANNOSE</div></td>
+      </tr>
+      
+      
+      
+      <tr><td>NAG</td><td>&#10005; -
+      
+        Binding site not conserved. 
+          
+        
+      
+      </td>
+      <td><div style="max-width:650px;">N-ACETYL-D-GLUCOSAMINE</div></td>
+      </tr>
+      
+      
+      
+      <tr><td>NAG</td><td>&#10005; -
+      Not in contact with model.
+      
+      </td>
+      <td><div style="max-width:650px;">N-ACETYL-D-GLUCOSAMINE</div></td>
+      </tr>
+      
+      
+      
+      <tr><td>NAG</td><td>&#10005; -
+      
+        Binding site not conserved. 
+          
+        
+      
+      </td>
+      <td><div style="max-width:650px;">N-ACETYL-D-GLUCOSAMINE</div></td>
+      </tr>
+      
+      
+      
+      <tr><td>NAG</td><td>&#10005; -
+      Not in contact with model.
+      
+      </td>
+      <td><div style="max-width:650px;">N-ACETYL-D-GLUCOSAMINE</div></td>
+      </tr>
+      
+      
+      
+      <tr><td>NAG</td><td>&#10005; -
+      
+        Binding site not conserved. 
+          
+        
+      
+      </td>
+      <td><div style="max-width:650px;">N-ACETYL-D-GLUCOSAMINE</div></td>
+      </tr>
+      
+      
+      
+      <tr><td>NAG</td><td>&#10005; -
+      Not in contact with model.
+      
+      </td>
+      <td><div style="max-width:650px;">N-ACETYL-D-GLUCOSAMINE</div></td>
+      </tr>
+      
+      
+      
+      <tr><td>NAG</td><td>&#10005; -
+      Not in contact with model.
+      
+      </td>
+      <td><div style="max-width:650px;">N-ACETYL-D-GLUCOSAMINE</div></td>
+      </tr>
+      
+      
+      
+      <tr><td>NAG</td><td>&#10005; -
+      Not in contact with model.
+      
+      </td>
+      <td><div style="max-width:650px;">N-ACETYL-D-GLUCOSAMINE</div></td>
+      </tr>
+      
+      
+      
+      <tr><td>NAG</td><td>&#10005; -
+      Not in contact with model.
+      
+      </td>
+      <td><div style="max-width:650px;">N-ACETYL-D-GLUCOSAMINE</div></td>
+      </tr>
+      
+      
+      
+      <tr><td>NAG</td><td>&#10005; -
+      
+        Binding site not conserved. 
+          
+        
+      
+      </td>
+      <td><div style="max-width:650px;">N-ACETYL-D-GLUCOSAMINE</div></td>
+      </tr>
+      
+      
+      
+      <tr><td>NAG</td><td>&#10005; -
+      Not in contact with model.
+      
+      </td>
+      <td><div style="max-width:650px;">N-ACETYL-D-GLUCOSAMINE</div></td>
+      </tr>
+      
+      
+      
+      <tr><td>NAG</td><td>&#10005; -
+      
+        Binding site not conserved. 
+          
+        
+      
+      </td>
+      <td><div style="max-width:650px;">N-ACETYL-D-GLUCOSAMINE</div></td>
+      </tr>
+      
+      
+      
+      <tr><td>NAG</td><td>&#10005; -
+      
+        Binding site not conserved. 
+          
+        
+      
+      </td>
+      <td><div style="max-width:650px;">N-ACETYL-D-GLUCOSAMINE</div></td>
+      </tr>
+      
+      
+      
+      <tr><td>NAG</td><td>&#10005; -
+      Not in contact with model.
+      
+      </td>
+      <td><div style="max-width:650px;">N-ACETYL-D-GLUCOSAMINE</div></td>
+      </tr>
+      
+      
+      
+      <tr><td>NAG</td><td>&#10005; -
+      
+        Binding site not conserved. 
+          
+        
+      
+      </td>
+      <td><div style="max-width:650px;">N-ACETYL-D-GLUCOSAMINE</div></td>
+      </tr>
+      
+      
+      
+      <tr><td>NAG</td><td>&#10005; -
+      
+        Binding site not conserved. 
+          
+        
+      
+      </td>
+      <td><div style="max-width:650px;">N-ACETYL-D-GLUCOSAMINE</div></td>
+      </tr>
+      
+      
+      
+      <tr><td>NAG</td><td>&#10005; -
+      
+        Binding site not conserved. 
+          
+        
+      
+      </td>
+      <td><div style="max-width:650px;">N-ACETYL-D-GLUCOSAMINE</div></td>
+      </tr>
+      
+      
+      
+      <tr><td>NAG</td><td>&#10005; -
+      Not in contact with model.
+      
+      </td>
+      <td><div style="max-width:650px;">N-ACETYL-D-GLUCOSAMINE</div></td>
+      </tr>
+      
+      
+      
+      <tr><td>NAG</td><td>&#10005; -
+      
+        Binding site not conserved. 
+          
+        
+      
+      </td>
+      <td><div style="max-width:650px;">N-ACETYL-D-GLUCOSAMINE</div></td>
+      </tr>
+      
+      
+      
+      <tr><td>NAG</td><td>&#10005; -
+      Not in contact with model.
+      
+      </td>
+      <td><div style="max-width:650px;">N-ACETYL-D-GLUCOSAMINE</div></td>
+      </tr>
+      
+      
+      
+      <tr><td>NAG</td><td>&#10005; -
+      
+        Binding site not conserved. 
+          
+        
+      
+      </td>
+      <td><div style="max-width:650px;">N-ACETYL-D-GLUCOSAMINE</div></td>
+      </tr>
+      
+      
+      
+      <tr><td>NAG</td><td>&#10005; -
+      Not in contact with model.
+      
+      </td>
+      <td><div style="max-width:650px;">N-ACETYL-D-GLUCOSAMINE</div></td>
+      </tr>
+      
+      
+      
+      <tr><td>NAG</td><td>&#10005; -
+      Not in contact with model.
+      
+      </td>
+      <td><div style="max-width:650px;">N-ACETYL-D-GLUCOSAMINE</div></td>
+      </tr>
+      
+      
+      
+      <tr><td>NAG</td><td>&#10005; -
+      Not in contact with model.
+      
+      </td>
+      <td><div style="max-width:650px;">N-ACETYL-D-GLUCOSAMINE</div></td>
+      </tr>
+      
+      
+      
+      <tr><td>PEG</td><td>&#10005; -
+      
+        Not biologically relevant.
+        
+      
+      </td>
+      <td><div style="max-width:650px;">DI(HYDROXYETHYL)ETHER</div></td>
+      </tr>
+      
+      
+      
+      <tr><td>PEG</td><td>&#10005; -
+      
+        Not biologically relevant.
+        
+      
+      </td>
+      <td><div style="max-width:650px;">DI(HYDROXYETHYL)ETHER</div></td>
+      </tr>
+      
+      
+		</tbody>
+	</table>
+  
+
+<br>
+
+
+<pre>Target    DTLCIGYHANNSTDTVDTVLEKNVTVTHSVNLLEDKHNGKLCKLRGVAPLHLGKCNIAGWILGNPECESLSTASSWSYIV<br>6n41.1.B  DTICIGYHANNSTDTVDTVLEKNVTVTHSVNLLEDSHNGKLCRLKGKAPLQLGKCNIAGWILGNPECESLLSKRSWSYIA<br><br>Target    ETSNSDNGTCYPGDFINYEELREQLSSVSSFERFEIFPKTSSWPNHDSNKGVTAACPHAGAKSFYKNLIWLVKKGNSYPK<br>6n41.1.B  ETPNSENGTCYPGDFADYEELREQLSSVSSFERFEIFPKESSWPKHNTTRGVTAACSHARKSSFYKNLLWLTEANGSYPN<br><br>Target    LNQSYINDKGKEVLVLWGIHHPSTTADQQSLYQNADAYVFVGTSRYSKKFKPEIATRPKVRDQEGRMNYYWTLVEPGDKI<br>6n41.1.B  LSKSYVNNQEKEVLVLWGVHHPSNIEDQRTLYRKENAYVSVVSSNYNRRFTPEIAERPKVRNQAGRMNYYWTLLEPGDTI<br><br>Target    TFEATGNLVVPRYAFTMERNAGSGIIISDTPVHDCNTTCQTPEGAINTSLPFQNIHPITIGKCPKYVKSTKLRLATGLRN<br>6n41.1.B  IFEANGNLIAPWYAFALSRGLGSGIITSNASMDECDTKCQTPQGAINSSLPFQNIHPVTIGECPKYVKSTKLRMVTGLRN<br><br>Target    VPSIQSRGLFGAIAGFIEGGWTGMVDGWYGYHHQNEQGSGYAADLKSTQNAIDKITNKVNSVIEKMNTQDTAVGKEFNHL<br>6n41.1.B  IPSIQSRGLFGAIAGFIEGGWTGMMDGWYGYHHQNEQGSGYAADQKSTQNAINGITNKVNSVIEKMNTQFTAVGKEFNKL<br><br>Target    EKRIENLNKKVDDGFLDIWTYNAELLVLMENERTLDYHDSNVKNLYEKVRNQLKNNAKEIGNGCFEFYHKCDNTCMESVK<br>6n41.1.B  EKRMENLNKKVDDGFLDIWTYNAELLVLLENERTLDFHDSNVKNLYEKVKNQLRNNAKELGNGCFEFYHKCDNECMESVK<br><br>Target    NGTYDYPKYSEEAKLNREKIDGVKLESTRIYQILAIYSTVASSLVLVVSLGAISFWMCSNGSLQCRICI<br>6n41.1.B  NGTYDYPKYSEE---------------------------------------------------------<br><br></pre>
+
+
+  <br>
+  <hr><br>
+  
+
+
+
+
+
+
+
+<h2>Materials and Methods</h2>
+
+
+
+<h2>Template Search</h2>
+<p>Template search with BLAST and HHBlits
+ has been performed against the SWISS-MODEL template library (SMTL, last update: 2019-07-11, last included PDB release: 2019-07-05).</p>
+
+<p>
+The target sequence was searched with BLAST against the primary amino acid sequence contained in the SMTL.
+
+
+A total of 624 templates were found.
+
+
+</p> 
+
+
+<p>
+An initial HHblits profile has been built using the procedure outlined in (Remmert et al.), followed by 1 iteration of HHblits against NR20. The obtained profile has then be searched against all profiles of the SMTL. A total of 1297 templates were found.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>Model Building</h2>
+<p>
+Models are built based on the target-template alignment using ProMod3. Coordinates which are conserved between the target and the template are copied from the template to the model. Insertions and deletions are remodelled using a fragment library. Side chains are then rebuilt. Finally, the geometry of the resulting model is regularized by using a force field. In case loop modelling with ProMod3 fails, an alternative model is built with PROMOD-II (<a href="#promodII">Guex et al.</a>).
+</p>
+
+<h2>Model Quality Estimation</h2>
+<p>
+The global and per-residue model quality has been assessed using the QMEAN scoring function (<a href="#qmean">Benkert et al.</a>) . For improved performance, weights of the individual QMEAN terms have been trained specifically for SWISS-MODEL. 
+</p>
+
+<h2>Ligand Modelling</h2>
+<p>
+Ligands present in the template structure are transferred by homology to the model when the following criteria are met: (a) The ligands are annotated as biologically relevant in the template library, (b) the ligand is in contact with the model, (c) the ligand is not clashing with the protein, (d) the residues in contact with the ligand are conserved between the target and the template. If any of these four criteria is not satisfied, a certain ligand will not be included in the model. The model summary includes information on why and which ligand has not been included.</p>
+
+<h2>Oligomeric State Conservation</h2>
+<p>
+The quaternary structure annotation of the template is used to model the target sequence in its oligomeric form. The method (<a href="#qsqe">Bertoni et al.</a>) is based on a supervised machine learning algorithm, Support Vector Machines (SVM), which combines interface conservation, structural clustering, and other template features to provide a quaternary structure quality estimate (QSQE). The QSQE score is a number between 0 and 1, reflecting the expected accuracy of the interchain contacts for a model built based a given alignment and template. Higher numbers indicate higher reliability. This complements the GMQE score which estimates the accuracy of the tertiary structure of the resulting model.</p>
+
+<h2>References</h2>
+<p>
+  <ul>
+    <li><a name="blastp"></a><b>BLAST</b><br>
+        Camacho, C., Coulouris, G., Avagyan, V., Ma, N., Papadopoulos, J.,
+        Bealer, K., Madden, T.L. BLAST+: architecture and applications. BMC
+        Bioinformatics 10, 421-430 (2009).
+        <a target="_blank" href="https://www.ncbi.nlm.nih.gov/pubmed/20003500">
+          <img width="17" align="absmiddle" height="16"
+               src="images/pubmed.jpg
+                    "></a>
+        <a href="https://dx.doi.org/10.1186/1471-2105-10-421"
+           target="_blank"><img src="images/doi.jpg
+                                     " width="30"
+                                height="16" align="absmiddle"
+                                style="padding-left:2px"></a></li>
+    <li><a name="hhblits"></a><b>HHblits</b><br>
+        Remmert, M., Biegert, A., Hauser, A., S&ouml;ding, J. HHblits:
+        lightning-fast iterative protein sequence searching by HMM-HMM
+        alignment. Nat Methods 9, 173-175 (2012).
+        <a target="_blank" href="https://www.ncbi.nlm.nih.gov/pubmed/22198341">
+          <img width="17" align="absmiddle" height="16"
+               src="images/pubmed.jpg
+                    "></a>
+        <a href="https://dx.doi.org/10.1038/nmeth.1818"
+           target="_blank"><img src="images/doi.jpg
+                                     " width="30"
+                                height="16" align="absmiddle"
+                                style="padding-left:2px"></a></li>
+  </ul>
+
+<h2>Table T1:</h2>
+<p>Primary amino acid sequence for which templates were searched and models were built.</p>
+<div class="sequence">DTLCIGYHANNSTDTVDTVLEKNVTVTHSVNLLEDKHNGKLCKLRGVAPLHLGKCNIAGWILGNPECESLSTASSWSYIVETSNSDNGTCYPGDFINYEE<br>LREQLSSVSSFERFEIFPKTSSWPNHDSNKGVTAACPHAGAKSFYKNLIWLVKKGNSYPKLNQSYINDKGKEVLVLWGIHHPSTTADQQSLYQNADAYVF<br>VGTSRYSKKFKPEIATRPKVRDQEGRMNYYWTLVEPGDKITFEATGNLVVPRYAFTMERNAGSGIIISDTPVHDCNTTCQTPEGAINTSLPFQNIHPITI<br>GKCPKYVKSTKLRLATGLRNVPSIQSRGLFGAIAGFIEGGWTGMVDGWYGYHHQNEQGSGYAADLKSTQNAIDKITNKVNSVIEKMNTQDTAVGKEFNHL<br>EKRIENLNKKVDDGFLDIWTYNAELLVLMENERTLDYHDSNVKNLYEKVRNQLKNNAKEIGNGCFEFYHKCDNTCMESVKNGTYDYPKYSEEAKLNREKI<br>DGVKLESTRIYQILAIYSTVASSLVLVVSLGAISFWMCSNGSLQCRICI<br></div>
+
+<h2>Table T2:</h2>
+<table class="borderedTbl">
+<thead>
+	<tr>
+		<th>Template</th>
+		<th>Seq Identity</th>
+		<th>Oligo-state</th>
+		<th>QSQE</th>
+		<th>Found by</th>
+		<th>Method</th>
+		<th>Resolution</th>
+		<th>Seq Similarity</th>
+		<th>Coverage</th>
+		<th>Description</th>
+	</tr>
+</thead>
+<tbody>
+
+<tr>
+		<td>6n41.1.B</td>
+		<td>79.67</td>
+		<td>homo-trimer</td>
+		<td>0.78</td>
+		<td>BLAST</td>
+		<td>X-ray</td>
+		<td>2.50&Aring;</td>
+		<td>0.56</td>
+		<td>0.90</td>
+		<td>Hemagglutinin</td>
+	</tr>
+<tr>
+		<td>6ona.1.A</td>
+		<td>79.48</td>
+		<td>homo-trimer</td>
+		<td>0.79</td>
+		<td>BLAST</td>
+		<td>X-ray</td>
+		<td>1.95&Aring;</td>
+		<td>0.56</td>
+		<td>0.91</td>
+		<td>Hemagglutinin</td>
+	</tr>
+<tr>
+		<td>6n41.1.A</td>
+		<td>79.67</td>
+		<td>homo-trimer</td>
+		<td>0.78</td>
+		<td>BLAST</td>
+		<td>X-ray</td>
+		<td>2.50&Aring;</td>
+		<td>0.56</td>
+		<td>0.90</td>
+		<td>Hemagglutinin</td>
+	</tr>
+<tr>
+		<td>6n41.1.B</td>
+		<td>79.63</td>
+		<td>homo-trimer</td>
+		<td>0.78</td>
+		<td>HHblits</td>
+		<td>X-ray</td>
+		<td>2.50&Aring;</td>
+		<td>0.56</td>
+		<td>0.89</td>
+		<td>Hemagglutinin</td>
+	</tr>
+<tr>
+		<td>6n41.1.A</td>
+		<td>79.63</td>
+		<td>homo-trimer</td>
+		<td>0.77</td>
+		<td>HHblits</td>
+		<td>X-ray</td>
+		<td>2.50&Aring;</td>
+		<td>0.56</td>
+		<td>0.89</td>
+		<td>Hemagglutinin</td>
+	</tr>
+<tr>
+		<td>6d8w.2.A</td>
+		<td>76.63</td>
+		<td>homo-trimer</td>
+		<td>0.73</td>
+		<td>HHblits</td>
+		<td>X-ray</td>
+		<td>2.35&Aring;</td>
+		<td>0.55</td>
+		<td>0.90</td>
+		<td>Hemagglutinin</td>
+	</tr>
+<tr>
+		<td>6mya.1.A</td>
+		<td>80.48</td>
+		<td>homo-trimer</td>
+		<td>0.71</td>
+		<td>HHblits</td>
+		<td>X-ray</td>
+		<td>2.05&Aring;</td>
+		<td>0.56</td>
+		<td>0.91</td>
+		<td>Hemagglutinin</td>
+	</tr>
+<tr>
+		<td>6osr.1.A</td>
+		<td>81.50</td>
+		<td>homo-trimer</td>
+		<td>0.70</td>
+		<td>BLAST</td>
+		<td>X-ray</td>
+		<td>2.55&Aring;</td>
+		<td>0.56</td>
+		<td>0.90</td>
+		<td>Hemagglutinin</td>
+	</tr>
+<tr>
+		<td>6osr.1.A</td>
+		<td>81.50</td>
+		<td>homo-trimer</td>
+		<td>0.70</td>
+		<td>HHblits</td>
+		<td>X-ray</td>
+		<td>2.55&Aring;</td>
+		<td>0.56</td>
+		<td>0.90</td>
+		<td>Hemagglutinin</td>
+	</tr>
+<tr>
+		<td>5k9o.1.C</td>
+		<td>96.62</td>
+		<td>homo-dimer</td>
+		<td>0.45</td>
+		<td>HHblits</td>
+		<td>X-ray</td>
+		<td>3.39&Aring;</td>
+		<td>0.61</td>
+		<td>0.92</td>
+		<td>Hemagglutinin</td>
+	</tr>
+<tr>
+		<td>5k9o.1.E</td>
+		<td>96.62</td>
+		<td>homo-dimer</td>
+		<td>0.45</td>
+		<td>HHblits</td>
+		<td>X-ray</td>
+		<td>3.39&Aring;</td>
+		<td>0.61</td>
+		<td>0.92</td>
+		<td>Hemagglutinin</td>
+	</tr>
+<tr>
+		<td>6ona.1.A</td>
+		<td>77.93</td>
+		<td>homo-trimer</td>
+		<td>0.79</td>
+		<td>HHblits</td>
+		<td>X-ray</td>
+		<td>1.95&Aring;</td>
+		<td>0.55</td>
+		<td>0.93</td>
+		<td>Hemagglutinin</td>
+	</tr>
+<tr>
+		<td>6d8w.2.C</td>
+		<td>76.63</td>
+		<td>homo-trimer</td>
+		<td>0.73</td>
+		<td>HHblits</td>
+		<td>X-ray</td>
+		<td>2.35&Aring;</td>
+		<td>0.55</td>
+		<td>0.90</td>
+		<td>Hemagglutinin</td>
+	</tr>
+<tr>
+		<td>6d8w.1.A</td>
+		<td>76.63</td>
+		<td>homo-trimer</td>
+		<td>0.70</td>
+		<td>HHblits</td>
+		<td>X-ray</td>
+		<td>2.35&Aring;</td>
+		<td>0.55</td>
+		<td>0.90</td>
+		<td>Hemagglutinin</td>
+	</tr>
+<tr>
+		<td>1ha0.1.A</td>
+		<td>45.73</td>
+		<td>homo-trimer</td>
+		<td>0.51</td>
+		<td>HHblits</td>
+		<td>X-ray</td>
+		<td>2.80&Aring;</td>
+		<td>0.43</td>
+		<td>0.90</td>
+		<td>PROTEIN (HEMAGGLUTININ PRECURSOR)</td>
+	</tr>
+<tr>
+		<td>1ha0.1.A</td>
+		<td>47.12</td>
+		<td>homo-trimer</td>
+		<td>0.50</td>
+		<td>BLAST</td>
+		<td>X-ray</td>
+		<td>2.80&Aring;</td>
+		<td>0.44</td>
+		<td>0.89</td>
+		<td>PROTEIN (HEMAGGLUTININ PRECURSOR)</td>
+	</tr>
+<tr>
+		<td>5k9k.2.C</td>
+		<td>45.44</td>
+		<td>monomer</td>
+		<td></td>
+		<td>HHblits</td>
+		<td>X-ray</td>
+		<td>2.97&Aring;</td>
+		<td>0.43</td>
+		<td>0.90</td>
+		<td>Hemagglutinin</td>
+	</tr>
+<tr>
+		<td>5k9k.1.C</td>
+		<td>45.44</td>
+		<td>monomer</td>
+		<td></td>
+		<td>HHblits</td>
+		<td>X-ray</td>
+		<td>2.97&Aring;</td>
+		<td>0.43</td>
+		<td>0.90</td>
+		<td>Hemagglutinin</td>
+	</tr>
+<tr>
+		<td>5kaq.1.A</td>
+		<td>45.66</td>
+		<td>homo-trimer</td>
+		<td>0.55</td>
+		<td>HHblits</td>
+		<td>X-ray</td>
+		<td>3.51&Aring;</td>
+		<td>0.43</td>
+		<td>0.90</td>
+		<td>Hemagglutinin</td>
+	</tr>
+<tr>
+		<td>5k9k.2.C</td>
+		<td>46.91</td>
+		<td>monomer</td>
+		<td></td>
+		<td>BLAST</td>
+		<td>X-ray</td>
+		<td>2.97&Aring;</td>
+		<td>0.44</td>
+		<td>0.89</td>
+		<td>Hemagglutinin</td>
+	</tr>
+<tr>
+		<td>5k9k.1.C</td>
+		<td>46.91</td>
+		<td>monomer</td>
+		<td></td>
+		<td>BLAST</td>
+		<td>X-ray</td>
+		<td>2.97&Aring;</td>
+		<td>0.44</td>
+		<td>0.89</td>
+		<td>Hemagglutinin</td>
+	</tr>
+<tr>
+		<td>5kaq.1.A</td>
+		<td>47.03</td>
+		<td>homo-trimer</td>
+		<td>0.53</td>
+		<td>BLAST</td>
+		<td>X-ray</td>
+		<td>3.51&Aring;</td>
+		<td>0.44</td>
+		<td>0.89</td>
+		<td>Hemagglutinin</td>
+	</tr>
+<tr>
+		<td>1rv0.1.A</td>
+		<td>82.35</td>
+		<td>homo-trimer</td>
+		<td>0.55</td>
+		<td>BLAST</td>
+		<td>X-ray</td>
+		<td>2.50&Aring;</td>
+		<td>0.57</td>
+		<td>0.59</td>
+		<td>hemagglutinin</td>
+	</tr>
+<tr>
+		<td>1ruy.1.A</td>
+		<td>82.97</td>
+		<td>homo-trimer</td>
+		<td>0.60</td>
+		<td>BLAST</td>
+		<td>X-ray</td>
+		<td>2.70&Aring;</td>
+		<td>0.57</td>
+		<td>0.59</td>
+		<td>hemagglutinin</td>
+	</tr>
+<tr>
+		<td>1rvt.1.A</td>
+		<td>82.35</td>
+		<td>homo-trimer</td>
+		<td>0.58</td>
+		<td>BLAST</td>
+		<td>X-ray</td>
+		<td>2.50&Aring;</td>
+		<td>0.57</td>
+		<td>0.59</td>
+		<td>hemagglutinin</td>
+	</tr>
+<tr>
+		<td>4f3z.1.E</td>
+		<td>92.05</td>
+		<td>homo-trimer</td>
+		<td>0.36</td>
+		<td>HHblits</td>
+		<td>X-ray</td>
+		<td>3.20&Aring;</td>
+		<td>0.60</td>
+		<td>0.60</td>
+		<td>Hemagglutinin</td>
+	</tr>
+<tr>
+		<td>2wrh.1.A</td>
+		<td>76.85</td>
+		<td>homo-trimer</td>
+		<td>0.52</td>
+		<td>BLAST</td>
+		<td>X-ray</td>
+		<td>3.00&Aring;</td>
+		<td>0.56</td>
+		<td>0.59</td>
+		<td>HEMAGGLUTININ HA1 CHAIN</td>
+	</tr>
+<tr>
+		<td>1rd8.1.A</td>
+		<td>81.96</td>
+		<td>homo-trimer</td>
+		<td>0.46</td>
+		<td>HHblits</td>
+		<td>X-ray</td>
+		<td>3.00&Aring;</td>
+		<td>0.57</td>
+		<td>0.60</td>
+		<td>hemagglutinin</td>
+	</tr>
+<tr>
+		<td>4f3z.1.A</td>
+		<td>92.05</td>
+		<td>homo-trimer</td>
+		<td>0.36</td>
+		<td>HHblits</td>
+		<td>X-ray</td>
+		<td>3.20&Aring;</td>
+		<td>0.60</td>
+		<td>0.60</td>
+		<td>Hemagglutinin</td>
+	</tr>
+<tr>
+		<td>4eef.1.A</td>
+		<td>81.96</td>
+		<td>monomer</td>
+		<td></td>
+		<td>HHblits</td>
+		<td>X-ray</td>
+		<td>2.70&Aring;</td>
+		<td>0.57</td>
+		<td>0.60</td>
+		<td>Hemagglutinin HA1 chain</td>
+	</tr>
+<tr>
+		<td>5vmc.1.A</td>
+		<td>81.90</td>
+		<td>homo-trimer</td>
+		<td>0.54</td>
+		<td>HHblits</td>
+		<td>X-ray</td>
+		<td>2.15&Aring;</td>
+		<td>0.57</td>
+		<td>0.59</td>
+		<td>Hemagglutinin HA1</td>
+	</tr>
+<tr>
+		<td>5vmc.1.C</td>
+		<td>81.90</td>
+		<td>homo-trimer</td>
+		<td>0.54</td>
+		<td>HHblits</td>
+		<td>X-ray</td>
+		<td>2.15&Aring;</td>
+		<td>0.57</td>
+		<td>0.59</td>
+		<td>Hemagglutinin HA1</td>
+	</tr>
+<tr>
+		<td>6hjp.1.A</td>
+		<td>76.54</td>
+		<td>homo-trimer</td>
+		<td>0.53</td>
+		<td>HHblits</td>
+		<td>EM</td>
+		<td>NA</td>
+		<td>0.56</td>
+		<td>0.59</td>
+		<td>Hemagglutinin</td>
+	</tr>
+<tr>
+		<td>3hto.1.A</td>
+		<td>77.16</td>
+		<td>homo-trimer</td>
+		<td>0.42</td>
+		<td>HHblits</td>
+		<td>X-ray</td>
+		<td>2.95&Aring;</td>
+		<td>0.56</td>
+		<td>0.59</td>
+		<td>Hemagglutinin</td>
+	</tr>
+<tr>
+		<td>1ruy.1.A</td>
+		<td>82.72</td>
+		<td>homo-trimer</td>
+		<td>0.60</td>
+		<td>HHblits</td>
+		<td>X-ray</td>
+		<td>2.70&Aring;</td>
+		<td>0.57</td>
+		<td>0.59</td>
+		<td>hemagglutinin</td>
+	</tr>
+<tr>
+		<td>2wrg.1.A</td>
+		<td>81.60</td>
+		<td>homo-trimer</td>
+		<td>0.50</td>
+		<td>HHblits</td>
+		<td>X-ray</td>
+		<td>3.00&Aring;</td>
+		<td>0.57</td>
+		<td>0.59</td>
+		<td>HEMAGGLUTININ HA1 CHAIN</td>
+	</tr>
+<tr>
+		<td>1rvt.1.A</td>
+		<td>82.10</td>
+		<td>homo-trimer</td>
+		<td>0.58</td>
+		<td>HHblits</td>
+		<td>X-ray</td>
+		<td>2.50&Aring;</td>
+		<td>0.57</td>
+		<td>0.59</td>
+		<td>hemagglutinin</td>
+	</tr>
+<tr>
+		<td>1rv0.1.A</td>
+		<td>82.10</td>
+		<td>homo-trimer</td>
+		<td>0.55</td>
+		<td>HHblits</td>
+		<td>X-ray</td>
+		<td>2.50&Aring;</td>
+		<td>0.57</td>
+		<td>0.59</td>
+		<td>hemagglutinin</td>
+	</tr>
+<tr>
+		<td>3gbn.1.A</td>
+		<td>81.96</td>
+		<td>monomer</td>
+		<td></td>
+		<td>HHblits</td>
+		<td>X-ray</td>
+		<td>2.20&Aring;</td>
+		<td>0.57</td>
+		<td>0.60</td>
+		<td>Hemagglutinin</td>
+	</tr>
+<tr>
+		<td>4gxu.1.A</td>
+		<td>81.96</td>
+		<td>homo-trimer</td>
+		<td>0.50</td>
+		<td>HHblits</td>
+		<td>X-ray</td>
+		<td>3.29&Aring;</td>
+		<td>0.57</td>
+		<td>0.60</td>
+		<td>Hemagglutinin HA1 chain</td>
+	</tr>
+<tr>
+		<td>4gxx.1.A</td>
+		<td>81.35</td>
+		<td>homo-trimer</td>
+		<td>0.58</td>
+		<td>HHblits</td>
+		<td>X-ray</td>
+		<td>1.80&Aring;</td>
+		<td>0.57</td>
+		<td>0.60</td>
+		<td>Hemagglutinin HA1 chain</td>
+	</tr>
+<tr>
+		<td>4f3z.1.C</td>
+		<td>92.05</td>
+		<td>homo-trimer</td>
+		<td>0.35</td>
+		<td>HHblits</td>
+		<td>X-ray</td>
+		<td>3.20&Aring;</td>
+		<td>0.60</td>
+		<td>0.60</td>
+		<td>Hemagglutinin</td>
+	</tr>
+<tr>
+		<td>4lvh.1.A</td>
+		<td>97.22</td>
+		<td>homo-tetramer</td>
+		<td>0.39</td>
+		<td>HHblits</td>
+		<td>X-ray</td>
+		<td>2.80&Aring;</td>
+		<td>0.61</td>
+		<td>0.92</td>
+		<td>Hemagglutinin</td>
+	</tr>
+<tr>
+		<td>4lvh.1.D</td>
+		<td>97.22</td>
+		<td>homo-tetramer</td>
+		<td>0.38</td>
+		<td>HHblits</td>
+		<td>X-ray</td>
+		<td>2.80&Aring;</td>
+		<td>0.61</td>
+		<td>0.92</td>
+		<td>Hemagglutinin</td>
+	</tr>
+<tr>
+		<td>4lvh.1.C</td>
+		<td>97.22</td>
+		<td>homo-tetramer</td>
+		<td>0.38</td>
+		<td>HHblits</td>
+		<td>X-ray</td>
+		<td>2.80&Aring;</td>
+		<td>0.61</td>
+		<td>0.92</td>
+		<td>Hemagglutinin</td>
+	</tr>
+<tr>
+		<td>4lvh.1.B</td>
+		<td>97.22</td>
+		<td>homo-tetramer</td>
+		<td>0.38</td>
+		<td>HHblits</td>
+		<td>X-ray</td>
+		<td>2.80&Aring;</td>
+		<td>0.61</td>
+		<td>0.92</td>
+		<td>Hemagglutinin</td>
+	</tr>
+<tr>
+		<td>6a0z.1.A</td>
+		<td>62.62</td>
+		<td>monomer</td>
+		<td></td>
+		<td>HHblits</td>
+		<td>X-ray</td>
+		<td>2.33&Aring;</td>
+		<td>0.50</td>
+		<td>0.93</td>
+		<td>Hemagglutinin,Envelope glycoprotein</td>
+	</tr>
+<tr>
+		<td>4f15.1.A</td>
+		<td>97.22</td>
+		<td>monomer</td>
+		<td></td>
+		<td>HHblits</td>
+		<td>X-ray</td>
+		<td>2.81&Aring;</td>
+		<td>0.61</td>
+		<td>0.92</td>
+		<td>Hemagglutinin</td>
+	</tr>
+<tr>
+		<td>4f15.3.A</td>
+		<td>97.22</td>
+		<td>monomer</td>
+		<td></td>
+		<td>HHblits</td>
+		<td>X-ray</td>
+		<td>2.81&Aring;</td>
+		<td>0.61</td>
+		<td>0.92</td>
+		<td>Hemagglutinin</td>
+	</tr>
+<tr>
+		<td>6a0z.1.A</td>
+		<td>63.69</td>
+		<td>monomer</td>
+		<td></td>
+		<td>BLAST</td>
+		<td>X-ray</td>
+		<td>2.33&Aring;</td>
+		<td>0.51</td>
+		<td>0.92</td>
+		<td>Hemagglutinin,Envelope glycoprotein</td>
+	</tr>
+</tbody>
+</table>
+
+
+<br>The table above shows the top 50 filtered templates. A further 838 templates were found which were considered to be less suitable for modelling than the filtered list.<br>
+4kw1.1.B, 4kw1.1.A, 6fyt.1.B, 5t1y.1.A, 2zvf.4.B, 6fyt.1.A, 3ztj.1.A, 3ztj.1.B, 4i78.1.B, 5toi.1.B, 5toi.1.C, 5toi.1.A, 6gol.1.A, 2zvf.4.A, 4ln3.1.A, 4ln3.1.B, 6qeq.1.A, 5w6g.1.A, 5w6g.1.B, 4lki.1.A, 5e62.1.B, 4lki.1.B, 6dfp.1.A, 4w8n.1.A, 4kpq.1.A, 6gaj.1.B, 4xq5.1.A, 5xl6.1.A, 6ewy.1.A, 2lwa.1.A, 3h5f.1.A, 4zcj.1.A, 4zcj.1.B, 1bz4.1.A, 5dut.1.A, 3ljm.1.B, 4kps.1.A, 3gbm.1.A, 6bko.1.A, 4eda.1.B, 5gjt.1.A, 2p22.1.A, 3hmg.1.A, 3hmg.1.B, 4kw1.3.A, 4kw1.3.B, 5nt1.2.A, 4ug3.1.B, 6fia.1.C, 4yjz.1.A, 3o9o.1.A, 6n4f.1.B, 6n4f.1.A, 4lvh.1.D, 4lvh.1.C, 6mym.1.A, 4lvh.1.A, 1br0.1.A, 4uo0.1.A, 4uo0.1.C, 4uo0.1.B, 5ugy.1.B, 5ugy.1.A, 2zvf.2.B, 2zvf.2.A, 2fk0.4.A, 2vis.1.C, 2x6p.1.A, 4s1x.2.B, 2x6p.1.C, 5w6r.2.B, 1m1j.1.F, 5zvk.1.C, 2fk0.5.A, 5t6s.2.D, 5kaq.1.A, 4s1x.2.A, 2fk0.5.B, 3u59.1.A, 4kdq.1.D, 1aq5.1.A, 6aop.1.B, 6aop.1.A, 5w42.1.B, 5w42.1.A, 1m1j.1.C, 6nrb.1.V, 5a3i.1.B, 5a3i.1.A, 6nrb.1.R, 5gna.1.B, 4cqz.1.A, 6bkn.2.A, 4tn3.1.B, 5thf.1.B, 5z88.1.A, 5k9k.1.C, 3lg7.1.A, 6osr.1.A, 3zpa.1.A, 3fku.1.B, 3fku.1.A, 4we5.1.A, 4we5.1.B, 6b3m.1.A, 4xqo.1.D, 6aoq.1.A, 4hg4.2.B, 4xqo.1.B, 4eef.1.B, 1sg2.1.B, 2yo3.1.A, 4hkx.1.A, 4eef.3.B, 3zp2.1.A, 4kth.2.A, 1ken.1.D, 5e2z.1.B, 6nsc.1.B, 6nsc.1.A, 4lcx.1.A, 4lcx.1.B, 5u9t.1.A, 6a4k.1.A, 3eyk.1.B, 4i78.1.A, 5vtv.1.A, 3qqo.1.A, 3qqo.1.B, 3wuq.1.A, 5gjt.1.B, 3qqi.1.A, 3u59.3.A, 4dj6.1.B, 6d8w.2.C, 5xla.2.A, 6d8w.2.A, 5zvk.1.A, 3qqb.1.B, 5zvk.1.B, 1eo8.1.J, 2wrg.1.B, 4cyv.1.B, 4cyv.1.A, 4n5k.1.B, 4hfu.1.F, 4m40.1.A, 4bsf.1.A, 4bsf.1.D, 4w8n.1.B, 5u9t.1.B, 5u9t.1.C, 3m5g.1.A, 3m5g.1.B, 3m5g.1.E, 3m5g.1.D, 5y2l.2.A, 2fic.1.A, 4gxu.1.B, 2ibx.1.A, 2ibx.1.B, 5bny.1.D, 4fqm.1.B, 5hmg.1.B, 5hmg.1.C, 6bkp.2.A, 5k92.1.C, 6n41.1.A, 6n41.1.B, 4nqj.1.B, 2wrd.1.A, 4fnk.1.B, 4fnk.1.A, 5e5w.1.B, 3na7.1.A, 4fqj.1.A, 5v2a.1.F, 6n5b.1.C, 1ez3.2.A, 6mzk.1.A, 5eiu.2.A, 5e30.1.D, 5thf.1.A, 3vun.1.A, 2fic.1.B, 6mya.1.A, 5xrt.2.B, 1ti8.1.A, 1rvx.1.B, 1ti8.1.B, 4kwm.3.B, 5u9u.1.C, 3s12.1.B, 5ykc.1.A, 4uy3.1.A, 3s12.1.A, 5hu8.1.A, 4py8.1.J, 4kwm.1.B, 4kwm.1.A, 6nrd.1.R, 4jum.1.B, 6nrd.1.V, 5th0.1.F, 4kdm.1.B, 4kdm.1.A, 5th0.1.E, 6nr9.1.R, 5u9u.1.B, 5th0.1.A, 1fxk.1.C, 1fxk.1.B, 1fxk.1.A, 4jug.1.D, 4jug.1.C, 4jug.1.B, 4jug.1.A, 4yy9.1.A, 5vty.1.A, 5u9u.1.A, 4ilo.1.A, 5xl1.1.B, 5xl1.1.A, 5xl2.1.A, 4bh1.1.B, 4eda.1.A, 1flc.1.A, 4bh1.1.A, 5nt2.1.F, 5nt2.1.G, 5nt2.1.E, 4r8w.1.F, 5k9k.2.C, 3gbm.1.B, 4jul.2.B, 4dj8.1.A, 4mhh.1.G, 4jul.2.F, 4jul.2.D, 4mhh.1.H, 4mhh.1.I, 5dur.1.C, 4ug1.1.B, 2zqm.1.A, 5vmf.1.A, 4h32.1.A, 5vmf.1.E, 5t6s.2.A, 3eym.1.A, 5t6s.2.C, 5e64.1.B, 1jsh.1.A, 4jug.2.F, 4wst.1.A, 1jsh.1.B, 6fln.1.B, 6fln.1.A, 5zvm.1.B, 5zvm.1.A, 4uo9.1.B, 5yt8.1.A, 3uyx.1.A, 4jul.1.A, 4wsr.1.A, 4cr0.1.A, 4wsr.1.C, 5k9q.1.B, 5k9q.1.A, 5mg8.2.B, 5k9q.1.E, 6ezv.1.A, 5t0b.1.D, 3h5f.1.C, 4hf5.1.I, 4yy1.1.B, 5t0b.1.A, 4yy1.1.A, 4jun.1.F, 6fia.1.B, 6fia.1.A, 4jun.1.B, 3h5f.1.B, 4jun.1.A, 3lzg.2.A, 4aur.1.A, 4bgz.1.A, 4bgz.1.B, 4k65.1.A, 1ken.1.E, 4kpq.1.B, 1sg2.1.A, 6a67.1.C, 4wsv.1.E, 4xqu.1.F, 4xqu.1.E, 3ube.1.A, 3ube.1.F, 4xqu.1.B, 2vit.1.C, 6gpz.1.B, 5br0.1.A, 4n5y.1.A, 5yt9.1.A, 4ltb.1.A, 6iut.1.C, 1ru7.1.A, 2yp7.1.A, 3g67.1.B, 2bez.1.A, 3g67.1.A, 4ll8.1.A, 3u1c.1.A, 4f23.1.A, 4pxj.2.A, 2lwa.2.A, 5br0.1.B, 5c0s.1.A, 4f15.1.A, 2qih.1.A, 5vjm.1.B, 5f7t.1.A, 3iv1.2.A, 5xld.1.A, 4f15.3.A, 4k66.4.B, 6hjp.1.B, 3u1c.2.A, 3ku6.1.A, 4s1x.1.C, 5kan.1.D, 4s1x.1.B, 5kan.1.A, 5kan.1.B, 6nz7.1.A, 6nz7.1.B, 6gaj.1.C, 4nm8.1.D, 5t5s.1.A, 5f7t.3.A, 3o9o.1.B, 4cg4.3.A, 5t1y.2.A, 4cg4.3.B, 5dup.1.A, 4kvn.1.A, 2wr5.1.B, 5uxt.1.C, 4cfg.1.B, 4cfg.1.A, 5xku.1.A, 2wr5.1.A, 4k3x.1.A, 5ibl.1.A, 4oxm.1.B, 5w6u.1.H, 5ibl.1.B, 4m5z.1.A, 6ii9.1.A, 6ii9.1.B, 6ii9.1.C, 3sdy.1.B, 3sdy.1.A, 1ha0.1.A, 5eiu.3.A, 5t1y.5.A, 4edb.1.B, 4edb.1.C, 4f3z.1.B, 4edb.1.A, 4f3z.1.D, 6d7u.1.B, 4f3z.1.F, 4edb.1.E, 4juk.1.B, 4juk.1.A, 6fia.2.A, 2qih.2.A, 2fk0.1.A, 6iuv.1.A, 4lvh.1.B, 4o58.1.A, 3u59.2.A, 3zp0.1.A, 1coi.1.A, 4cg4.2.B, 6bkn.1.A, 4wss.2.C, 4m40.1.B, 4xkf.1.A, 2yp2.1.A, 6chx.2.A, 5bqy.1.B, 5bqy.1.A, 3zp6.1.A, 2l5g.1.B, 1qu1.1.A, 5xhv.1.A, 1qu1.1.C, 1qu1.1.B, 6hjq.1.B, 3u1a.1.B, 3u1a.1.A, 3uyw.1.A, 4hfu.1.A, 3vun.1.B, 3al4.1.A, 3al4.1.B, 2kxa.1.A, 4wsx.1.B, 4wsx.1.A, 1rvt.1.B, 6fia.2.C, 6fyw.1.E, 6fyw.1.D, 4uoa.1.B, 3al4.3.B, 4ubd.1.J, 6n5d.1.A, 4eda.2.B, 4eda.2.A, 4we8.1.A, 4jtx.1.F, 4ubd.1.A, 4jtx.1.B, 4jtx.1.A, 6e7h.1.B, 6e7h.1.F, 6n08.1.A, 4kqt.1.A, 6gqa.1.B, 1lpe.1.A, 6gqa.1.A, 4xa1.1.B, 4xa1.1.A, 2fk0.3.B, 4we6.1.A, 2fk0.3.A, 6d7c.1.A, 6hjr.1.B, 6mlm.1.A, 6d7c.1.B, 2etd.1.A, 6hjr.1.F, 4kdq.1.A, 6hjr.1.D, 3whe.1.A, 6ns9.1.A, 4jtv.2.F, 2yo3.1.B, 2yo3.1.C, 5toh.1.C, 5toh.1.B, 5toh.1.A, 5hu8.1.D, 6nr8.1.F, 4we4.1.A, 6nr8.1.B, 4we4.1.B, 5t6n.1.F, 5xrs.1.C, 4nqj.1.C, 5xrs.1.A, 4nqj.1.A, 5xrs.1.E, 5k9o.1.E, 4ug3.1.A, 5k9o.1.C, 6e4x.1.A, 4hf5.1.F, 5jw4.1.A, 1sg2.1.C, 5jw4.1.B, 4kol.1.B, 4kol.1.A, 5kb1.1.A, 5a3i.2.B, 5kb0.1.A, 1htm.1.F, 1htm.1.D, 1htm.1.B, 4cqp.1.A, 4bsa.1.F, 4bsa.1.A, 4n60.1.E, 4hg4.1.A, 4hg4.1.B, 6gpz.1.A, 4hg4.1.F, 4n60.1.B, 1hgd.1.A, 4we7.1.A, 5zhy.1.C, 5gjs.1.A, 5gjs.1.B, 6e3h.1.B, 6e3h.1.A, 5e32.1.A, 5e32.1.B, 4xqo.2.A, 2zvf.1.A, 2zvf.1.B, 2vir.1.C, 6gp7.1.B, 6gp7.1.A, 2wrf.1.A, 5umn.1.A, 4eef.2.B, 4fp8.1.A, 4xrc.1.C, 1u0i.1.A, 5uxt.1.A, 5zhy.1.A, 2ap3.1.A, 5cjq.1.D, 5cjq.1.C, 6nz7.2.B, 4bh2.1.A, 5uxt.1.B, 6nrc.1.F, 4bh2.1.B, 6nrc.1.B, 3u59.1.B, 4kth.1.B, 4kth.1.A, 4uo3.1.B, 4uo3.1.A, 3zp3.1.A, 4cgk.1.A, 4cgk.1.B, 4k3x.1.D, 6d8w.1.A, 6e7g.1.A, 4qy0.1.A, 4cg4.1.B, 6ml8.1.B, 4cg4.1.A, 6oc3.1.C, 3gbm.2.B, 6qeq.2.A, 4kw1.2.B, 4oxm.1.C, 6mlm.1.B, 4oxm.1.A, 4ju0.1.A, 4ju0.1.B, 2zvf.3.B, 4ju0.1.F, 4d00.1.D, 4d00.1.A, 4d00.1.B, 4cz0.1.D, 4psl.1.A, 5xau.1.B, 4nrj.1.B, 4nrj.1.A, 5w9a.1.D, 3bt6.1.A, 3bt6.1.B, 5w08.1.A, 4fqk.1.A, 5y05.1.A, 1cos.1.C, 1cos.1.B, 1cos.1.A, 2wrf.3.A, 5w9a.1.A, 4ltb.1.B, 4uo4.1.A, 4hlz.1.E, 4hlz.1.D, 4hlz.1.C, 1ruy.1.B, 4xqu.1.D, 4uo4.1.B, 3hto.1.B, 3ljm.1.C, 1ez3.3.A, 3ljm.1.A, 4fiu.1.A, 4s1x.2.C, 1ez3.1.A, 4mhi.1.A, 4tn3.1.A, 4hlz.1.F, 4mhi.1.B, 4lxv.1.B, 4lxv.1.A, 4xnm.1.E, 4wa2.1.C, 4wa2.1.A, 4unw.1.D, 4unw.1.A, 5vmc.1.B, 5dum.1.C, 5xau.2.B, 3ubn.1.E, 5kuy.1.B, 2wre.1.A, 6egn.1.A, 6egn.1.C, 6egn.1.B, 5e30.1.B, 5xl9.1.A, 4edb.1.F, 4uny.1.A, 4jum.1.A, 5ykc.1.C, 5ykc.1.B, 4bsg.1.A, 4bsg.1.B, 4unw.1.B, 6d7u.1.A, 5xl2.1.B, 5xl2.1.C, 5nt2.1.H, 3zp1.1.A, 4jul.1.D, 4uo9.1.A, 4jul.1.F, 5vag.1.A, 4jul.1.B, 4yy0.1.F, 6ml8.1.A, 4yy0.1.D, 2viu.1.B, 2zdi.1.A, 2zdi.1.B, 6fia.2.B, 4n5j.1.D, 6mxu.1.A, 6qeq.2.B, 4uoa.1.A, 6gqn.1.A, 6gqn.1.B, 4wst.2.D, 6bkp.1.A, 2rfu.1.B, 3ubj.2.D, 2rfu.1.A, 5xrt.1.B, 6aos.1.A, 2fk0.1.B, 5nt1.1.A, 4yk4.1.C, 6hjn.1.B, 6hjn.1.A, 5ajm.1.A, 5tgo.1.C, 6qeq.1.B, 4bgw.1.A, 4bgw.1.B, 5w5s.1.A, 1le2.1.A, 5uk1.1.C, 5uk1.1.B, 6n5a.1.B, 6n5a.1.A, 4ug1.1.A, 6h3a.1.B, 6ii8.1.B, 4o5n.1.B, 4o5n.1.A, 6h3a.1.D, 1uru.1.A, 4k62.3.B, 1mqm.1.A, 1mqm.1.B, 4k62.1.B, 4k62.1.A, 4h32.1.B, 4qy0.1.B, 3ztn.1.A, 3ztn.1.B, 6bkm.1.A, 5cjs.1.D, 5vtu.2.A, 2zvf.3.A, 4h32.1.F, 1eo8.1.A, 3aei.1.A, 3eym.1.B, 6d8b.1.A, 5c0r.1.A, 6d8b.1.B, 4h32.1.D, 2jgo.1.B, 1rd8.1.B, 5vmf.1.F, 4wsr.2.C, 1jsm.1.A, 2viu.1.A, 4xqo.1.F, 5cjs.1.C, 5bqz.1.A, 6cfe.1.A, 4cg4.2.A, 6chx.1.A, 2hmg.1.A, 4kps.1.B, 5xhv.2.A, 6cnv.1.B, 4wst.1.B, 5vjl.1.B, 5kb2.1.A, 4wsw.1.F, 2x6p.1.B, 5iea.2.B, 4wsw.1.A, 4wsw.1.B, 3s11.1.A, 5ayh.1.A, 4hmg.1.E, 3eyk.1.A, 5vmg.1.A, 5e2z.1.A, 5vmg.1.C, 4dj6.1.A, 5e2z.1.F, 5e2z.1.D, 3iv1.1.C, 3iv1.1.A, 3h5g.1.A, 3h5g.1.B, 3h5g.1.C, 4nkj.1.A, 2wr1.1.C, 5v2a.1.E, 5f7t.2.A, 2wr1.1.B, 5vli.1.A, 4cqv.1.F, 1rvx.1.A, 2wr1.1.A, 4cqv.1.A, 3ku5.1.A, 5ibl.2.D, 5ibl.2.C, 6nr9.1.V, 6e56.1.A, 4n5z.1.A, 4wss.1.A, 4xa1.2.A, 4xa1.2.B, 5w0d.1.A, 4n5z.5.F, 6ona.1.A, 5tgu.1.B, 5tgu.1.C, 5wlq.1.A, 3u1a.2.A, 3u1a.2.B, 5tgu.1.E, 3lzg.1.E, 3lzg.1.D, 3lzg.1.A, 4ilo.2.A, 3lzg.1.B, 1qu1.2.B, 1qu1.2.C, 1qu1.2.A, 4fqk.1.B, 4jtv.1.A, 5huf.1.B, 5huf.1.A, 4jtv.1.B, 1ruz.1.A, 1ruz.1.B, 4gms.1.B, 4gms.1.A, 5ug0.1.F, 3s13.1.B, 3s13.1.A, 4cyw.1.B, 5ug0.1.A, 6cf7.1.D, 4cyz.1.A, 6cf7.1.A, 6egl.1.A, 5t08.1.F, 5mg8.1.B, 3iv1.2.B, 6fyu.1.E, 4psm.1.A, 4xnq.1.C, 2wrh.1.B, 4s1x.1.A, 4rsi.1.A, 2wrh.1.A, 1u2m.1.A, 1u2m.1.B, 1u2m.1.C, 3mlh.1.A, 2wrb.1.A, 5xrs.2.B, 4ln6.1.A, 1hgg.1.A, 1hgg.1.B, 4ln6.1.B, 4yy0.1.C, 4yy0.1.B, 4edb.1.D, 3ubq.1.C, 4pxj.1.B, 4pxj.1.A, 5ijn.1.H, 6ii8.1.A, 3gbn.1.B, 5t76.1.A, 3m6s.1.A, 3m6s.1.B, 2lwa.3.A, 6ii4.1.A, 3aei.2.A, 6ii4.1.B, 4fqv.1.B, 4fqv.1.A, 1jsm.1.B, 5thb.1.E, 3uyx.2.A, 5thb.1.A, 6nz7.2.A, 6n5e.1.A, 4ug3.2.A, 4ug3.2.B, 4m4y.1.A, 4mc5.1.A, 1rvx.2.F, 5jw3.1.B, 4m4y.1.D, 5jw3.1.A, 6gaj.1.A, 6nsa.1.B, 5tg8.1.B, 5tg8.1.A, 4yy9.1.B, 5e35.1.B, 5vjk.1.A, 4cr0.1.B
+ 
+
+
+	</div>
+	
+  <div id="sib_footer">			
+   <div id="sib_footer_content"> 
+       <a href="https://www.sib.swiss">Swiss Institute of Bioinformatics</a>
+       <a href="mailto:help-swissmodel@unibas.ch" style="margin-left:16px;">Contact Us</a>
+      <div id="sib_footer_right" style="float:right"></div>
+  	</div>
+	</div>
+  
+  <script src="js/svgtocanvas.min.js"></script>
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/jquery.fancybox.pack.js"></script> 
+  <script src="js/qmean.min.js"></script>
+  <script src="js/raphael-min.js"></script>
+  <script>
+ var localQMEANNormImage='images/qmean_norm.png';
+ var modelData = {
+   
+      "01":{
+        'qmean_local' :{"A": [0.7601582929, 0.8247312403, 0.8222539151, 0.8624214564, 0.8708096059, 0.8768024945, 0.8017341071, 0.75365933, 0.7930660226, 0.7155527214, 0.6917793603, 0.7821069087, 0.7630352774, 0.7682079001000001, 0.7914986868, 0.8272179641, 0.7634839859, 0.7454428222, 0.6900196809, 0.6068073021, 0.7181360001, 0.7104876896, 0.7227309633, 0.7301536309000001, 0.749157378, 0.8227628979, 0.8276213090000001, 0.8181437972000001, 0.8929945041, 0.8722942149, 0.8382020739, 0.8371556101000001, 0.8350100236, 0.7636666107000001, 0.7761851630000001, 0.7692070048, 0.7911648704, 0.8073362869, 0.8367224182, 0.8005401107, 0.8465878864, 0.8629232617, 0.8115357194, 0.7893258252, 0.6557634617, 0.8199079694, 0.7682782527, 0.8177126521, 0.8416960925, 0.7670547549000001, 0.784440608, 0.79683673, 0.7790844189, 0.7247541427, 0.8444143780000001, 0.8467615077, 0.8734053021, 0.9159401802, 0.9246086818, 0.8478244770000001, 0.8590916784, 0.8930110033, 0.9067847519000001, 0.8714749518, 0.8402581138, 0.7774408159, 0.8201610761, 0.6384490875000001, 0.6103145369, 0.47865630200000003, 0.4722693298, 0.4580144672, 0.4554271045, 0.7030896592, 0.7501552042, 0.7395912777, 0.8023780641, 0.8108531838, 0.8337898979, 0.8584192511000001, 0.8033915960000001, 0.7745929858, 0.7190552956, 0.6437176851, 0.7411359938000001, 0.6845903531, 0.7983870291, 0.8797375126, 0.8567873367000001, 0.8630889351000001, 0.8451006108, 0.8674774133, 0.8762980575, 0.7955642208, 0.8161240193, 0.7825050827000001, 0.8019032027, 0.8214786613, 0.8007636182000001, 0.7766776165, 0.8420374761, 0.8034944274, 0.7621375423000001, 0.7760501411, 0.8339402379, 0.780618009, 0.6538588855, 0.7381950754000001, 0.7331509915000001, 0.7180745185, 0.7734982521, 0.7482148415000001, 0.7314914025, 0.789381368, 0.8167713552, 0.8865139175000001, 0.8781272973, 0.8650974439, 0.7812254516, 0.7459575512000001, 0.8385206865, 0.8408485285, 0.8055987944, 0.8189670812000001, 0.7788472055000001, 0.7773791519000001, 0.7905081124000001, 0.8097709974, 0.7208310999, 0.7234109466, 0.806237305, 0.7727845302, 0.7410276887, 0.7481159115, 0.8318922229, 0.8378782433, 0.7403617223000001, 0.5954659727, 0.5259074563, 0.4513231454, 0.5251873386, 0.5997351908, 0.7691289828000001, 0.8122808003, 0.8550685081, 0.8283918444, 0.8728777640000001, 0.8955463429, 0.8887326437, 0.8545377348000001, 0.8708042217, 0.83068417, 0.7637917236, 0.722533007, 0.6790188866, 0.6783928472, 0.7651345799, 0.7739929825, 0.8330667205000001, 0.8152583941, 0.8295642321000001, 0.8430383610000001, 0.8426107017000001, 0.8724962322, 0.8255743978000001, 0.7948202009, 0.8268385738, 0.8033325823, 0.7839606963, 0.8136830493, 0.7755547398, 0.8230618456000001, 0.9041629268, 0.9137587293, 0.9411546106, 0.9299809418, 0.8958563457000001, 0.95054249, 0.9188401084000001, 0.8828912065000001, 0.838726674, 0.8608205466000001, 0.7855606135000001, 0.7473969889000001, 0.7493996832, 0.8112002657, 0.7723707756, 0.7538611714, 0.7167296641, 0.7913419253, 0.793434692, 0.7831640568, 0.7194334849, 0.6730689906, 0.702661706, 0.701312173, 0.8648581809, 0.8542037077, 0.9099191057, 0.8422334115000001, 0.8698853348000001, 0.8383698947, 0.7846921199, 0.715489668, 0.6309527394000001, 0.6992481515, 0.7529137871, 0.7684801467, 0.8111838485, 0.8300958346, 0.8002696232000001, 0.8546072, 0.7608643991, 0.7352608528, 0.6926298854, 0.6115762929, 0.6446292967, 0.6441252905, 0.7132155319, 0.7562470604, 0.6896993428, 0.6992339407, 0.7143200465, 0.7468344436000001, 0.8399538212000001, 0.7974597195, 0.8584233276000001, 0.8954596997000001, 0.8884653294, 0.8926216047000001, 0.8737082258000001, 0.9011952872000001, 0.8726575546, 0.8724592692, 0.7875056047000001, 0.8351504038, 0.807492341, 0.7854088501, 0.7991379511000001, 0.8644297473, 0.8544059536, 0.8764190839, 0.8565591185, 0.9198157911, 0.8607881109000001, 0.9191018121000001, 0.9065975859000001, 0.9251009491000001, 0.9351437378, 0.9325617209, 0.9533450286, 0.8183609767000001, 0.8588347586, 0.9126760511, 0.8601918973, 0.8492569997, 0.8213544869, 0.7531352678000001, 0.6592943419, 0.6483233202, 0.5950535005, 0.6115539944, 0.7418427507, 0.8089650401, 0.8253387967, 0.8232300585000001, 0.8012121134, 0.8161740801, 0.7616580709, 0.7870193395, 0.7870512654, 0.753586172, 0.6965189251, 0.67109102, 0.8079065329, 0.7927504606, 0.8372476057, 0.8110629614, 0.8440770985, 0.8286326531, 0.8755248498, 0.8849833044000001, 0.7994169262, 0.9009364227000001, 0.8987456553000001, 0.8298385976, 0.6936327880000001, 0.6470352049, 0.7587582547, 0.7724648252, 0.8314386225, 0.7753667511, 0.7795493764, 0.8000459183, 0.8055627364, 0.7622009069, 0.7910691556, 0.7409329105, 0.8222437615, 0.8049822692, 0.8117700546000001, 0.7160631922, 0.7939559306, 0.8211899167000001, 0.7548386941, 0.7276288727, 0.8434778237, 0.7942139808, 0.8210166668000001, 0.7764155241, 0.7991566999999999, 0.8646999605000001, 0.8056579531, 0.8838938227, 0.9107663978, 0.8910739619, 0.9070774633, 0.8211497762000001, 0.685452551, 0.7444134173, 0.6279075080000001, 0.4410348096, 0.42516474190000003, 0.3504517059, 0.3435309867, 0.2672071486, 0.256783207, 0.6845819344, 0.6013389938, 0.5927092125, 0.7218154498, 0.7540818541000001, 0.6886194709, 0.68551871, 0.6592673562, 0.6692815486, 0.7126000586, 0.6739601786, 0.7316642192, 0.7669256130000001, 0.6612285358000001, 0.6867913477, 0.6863479163, 0.6870599256000001, 0.6542926359, 0.6372505505, 0.8157145490000001, 0.7861337311000001, 0.8360705373, 0.8774239656, 0.8424163297, 0.8100490622000001, 0.7879053308, 0.7648059362, 0.7789090465, 0.6573856204, 0.6605366614, 0.7817823157, 0.8099403243000001, 0.8015331045, 0.7611103763, 0.8302385911, 0.8356791658, 0.7955721109, 0.7404517851, 0.7251024212, 0.7978553497, 0.8163206388, 0.7532060998, 0.7938612115, 0.8548610105000001, 0.813044163, 0.7548203605, 0.7505325528, 0.7721733864, 0.7760512418000001, 0.7169529311, 0.7340083331, 0.7745169392, 0.7468847101, 0.6862922837000001, 0.7050868179, 0.6920738896, 0.6495030178, 0.6190836156, 0.5975364995, 0.568880862, 0.605122153, 0.5106284423, 0.6108889663, 0.5763503743, 0.6560689582, 0.6438540846, 0.7245535191, 0.6918666509, 0.7196875289, 0.7171018186, 0.6709884787, 0.5083700916, 0.5425580913, 0.6381344905, 0.6841951071, 0.6484717493000001, 0.6176760665000001, 0.6966695892, 0.6454490207, 0.6174929026, 0.6428032840000001, 0.6518883104000001, 0.5948572253000001, 0.5662028886, 0.6301569874, 0.5963719528, 0.5526325400000001, 0.5298507186, 0.6212151649000001, 0.5933413267000001, 0.551411336, 0.5703884889, 0.7181368432, 0.5998311181, 0.6692105587, 0.80481408, 0.8085364093, 0.6976826765, 0.7320119353, 0.8189307637000001, 0.774212821, 0.6275942134, 0.7545046515, 0.8139209164000001, 0.7091360229, 0.6919553944, 0.8152812764, 0.7548146473, 0.7192978416, 0.7108232618, 0.7913953414, 0.770801356, 0.7751431049, 0.822185253, 0.8429209069, 0.7853048272, 0.7870457932, 0.8193420201, 0.8164801730000001, 0.8027565199000001, 0.7747174012, 0.8486639402, 0.7928383088000001, 0.7689731284, 0.7713705308000001, 0.7563280551, 0.7233041859, 0.6957343131, 0.7173700032, 0.7769363141000001, 0.6490047556, 0.6876228543, 0.6462106064, 0.7268967684000001, 0.7418207, 0.8493016228, 0.8622949866, 0.7874991316000001, 0.7273048023, 0.7001416425, 0.5834276546, 0.6276498771, 0.6353354396, 0.7173473774, 0.7155478844000001, 0.7403218831, 0.7133840084, 0.7873760630000001, 0.7523261083, 0.733504103, 0.7265219150000001, 0.7786050629, 0.7879965285, 0.7651865365, 0.7870986753, 0.7441068016, 0.6893977405, 0.6751431538, 0.619846338, 0.5468510667, 0.5592884748, 0.5779368933, 0.4110848036, 0.317047419, 0.3420836698, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null], "C": [0.7992721981, 0.8374000265, 0.8421171967000001, 0.8719655284000001, 0.8667092455000001, 0.8501117799000001, 0.7938686026, 0.7474879083, 0.7965273729, 0.7388349258, 0.6978189714, 0.7871485437, 0.7782950209, 0.7824734414000001, 0.8295438078, 0.8532307009000001, 0.8022277666000001, 0.7669569376, 0.7316621621, 0.6796469975, 0.7515200766, 0.7392129066, 0.7858363901000001, 0.8090469258, 0.8170234181, 0.8641631694, 0.8509828256, 0.8285618254, 0.8894944163, 0.8753478997, 0.8315179156, 0.8250642369000001, 0.8341236917, 0.7696310975, 0.7729669554, 0.7686989287, 0.7919891938, 0.8116213646, 0.8362039653000001, 0.7893167308, 0.8380340703, 0.8655674119000001, 0.7964209231, 0.7770561039, 0.6416419586000001, 0.8043259949, 0.7671058137000001, 0.8187967205000001, 0.8342009025, 0.8027157431, 0.7966648338000001, 0.8158218578, 0.7792092515, 0.7601449117, 0.8534747778, 0.8570353757, 0.8643242753, 0.9226289624, 0.9231917049, 0.8508922247, 0.8672460472, 0.8942148899000001, 0.9109227315, 0.8849119253000001, 0.8617046849000001, 0.7966946720000001, 0.8330242736, 0.7070259124, 0.6921043610000001, 0.610355085, 0.6335263141, 0.6058110558, 0.6573249812, 0.7295942627, 0.7619002324, 0.7470802409, 0.7870794001, 0.8125797208000001, 0.8413258895, 0.8638844654000001, 0.8079150636, 0.7762002495, 0.7271101573000001, 0.7024766988000001, 0.7681268136, 0.7538957301, 0.8062192930000001, 0.8817041424000001, 0.86239475, 0.8824143805, 0.8558333220000001, 0.8679374999999999, 0.8790647939, 0.7932510593000001, 0.8176301156, 0.7841839351000001, 0.8007890346000001, 0.8169972069, 0.7824483959, 0.7582175918, 0.8332982257, 0.7881283598000001, 0.7564775287000001, 0.7602884931, 0.825154793, 0.7753252190000001, 0.6461942177000001, 0.6999270021, 0.7085523337, 0.7588623831, 0.8003103021, 0.8085642628, 0.7688467402, 0.8266373363, 0.8505561662000001, 0.8938365296, 0.8764018286, 0.8587144680000001, 0.7657112620000001, 0.7320025019, 0.8257187561, 0.8311916219000001, 0.7912122642, 0.8079554241, 0.7674982872, 0.7658451114, 0.7779079551, 0.792796389, 0.7151602122, 0.7281123615, 0.8115512745, 0.7953307692, 0.7811404812, 0.7982069272000001, 0.8558757123, 0.8591130907000001, 0.7913974518, 0.6878444353000001, 0.5944848306, 0.49620048050000004, 0.6446049965, 0.6567680064, 0.8120925266, 0.8429520016000001, 0.8747363656, 0.8330267793, 0.8673993915, 0.8922722004, 0.8684439273000001, 0.8518896521, 0.8648359151, 0.8311226047, 0.7497852908, 0.6981352153, 0.6536104454, 0.6459537099, 0.7380605415, 0.7582637095, 0.8225423698000001, 0.8056774754, 0.8259392218, 0.8353987965, 0.8365310887, 0.8646217545, 0.8203381244, 0.7998475177000001, 0.8253798483, 0.7949132259, 0.7721088071000001, 0.8124857811, 0.7800014781, 0.821779613, 0.9107300068, 0.9146389977, 0.9348670083, 0.9261953519, 0.8938202897, 0.9489492981000001, 0.918437648, 0.8828074849, 0.844638812, 0.8640988270000001, 0.7885470807, 0.7537077052000001, 0.7471734356, 0.8063881190000001, 0.7659622651, 0.7527212648, 0.7111124345000001, 0.7821438952, 0.7956756517, 0.7777173087, 0.7036206060000001, 0.6899030207, 0.7219812306000001, 0.7206081689, 0.8660105352, 0.8541284547, 0.9047229856000001, 0.8395322759, 0.8653289702, 0.8380454261, 0.7828987576, 0.7162360687, 0.6506493945, 0.6935819452, 0.7328165997, 0.7676457932, 0.7987634237, 0.8279979387, 0.7948843695000001, 0.8574494427, 0.7648684419, 0.7349353261, 0.6916353434, 0.5831013328, 0.6469163087, 0.6405670937, 0.7043757808000001, 0.7394488859, 0.7006485381, 0.7046744515000001, 0.7228858062, 0.7527924992, 0.8426890612, 0.8006064126, 0.8573406093, 0.8872395607, 0.8876452753, 0.8864963543000001, 0.8726989915000001, 0.8952071625, 0.8775609442000001, 0.8737157322, 0.7816103609, 0.8380951094, 0.8126111756000001, 0.7897738755, 0.790526198, 0.8556395744, 0.8490717282, 0.8662045732, 0.8487951786, 0.9172230349, 0.8576028867000001, 0.9154869080000001, 0.9049148144, 0.9245241524000001, 0.9367827073, 0.9221397024, 0.9443386251, 0.8213672312, 0.8674864256, 0.9240216169000001, 0.8768224313, 0.8788326635, 0.8332889258, 0.7515803873, 0.6430099300000001, 0.6271955402, 0.5826246852, 0.5988929497000001, 0.7155196014, 0.8065168030000001, 0.8249472385000001, 0.8257498819, 0.7959682461, 0.8111218794, 0.7617431021000001, 0.7917552654000001, 0.7864474610000001, 0.7432269295, 0.7095635944, 0.7322921148, 0.8204231677, 0.8092578229, 0.8458423576, 0.8198787052000001, 0.8573153349, 0.8284425592, 0.8673164186000001, 0.8769861639000001, 0.7972201386000001, 0.8964689714, 0.9038080149000001, 0.8356553797, 0.6885612737, 0.6481905255, 0.7682636464, 0.7816778431, 0.8309247466, 0.7795367856000001, 0.7799816681, 0.8005666185, 0.8032019829, 0.7550059864, 0.7750392744, 0.7106460472, 0.8021275288, 0.7971913404000001, 0.817750933, 0.7369700365, 0.8049609095, 0.8332018429, 0.7586646348, 0.7311606161, 0.8481701089, 0.8028454249, 0.8319010665000001, 0.7825225343000001, 0.7960912002, 0.8632278680000001, 0.8098204381, 0.8894024174, 0.920291442, 0.8945016314, 0.932510543, 0.8518402322, 0.7211167952, 0.7691393057, 0.5461773507000001, 0.4647947845, 0.4271883211, 0.3892975576, 0.36030229340000003, 0.2795635918, 0.3289564656, 0.7039947955, 0.6030608255000001, 0.6378759414, 0.7095559264, 0.7492805802, 0.681949714, 0.6728673135000001, 0.6636449033, 0.6428530119, 0.7003507547000001, 0.663377479, 0.7198396659, 0.7654243397, 0.6636769560000001, 0.6918001706, 0.6930336638, 0.6766122568, 0.6695481038000001, 0.6496299653000001, 0.8178602895, 0.7891289555000001, 0.8421176960000001, 0.8659636013, 0.8296895405, 0.8134710959, 0.8158020038, 0.8075313110000001, 0.8132443001, 0.6673799923, 0.689537344, 0.8277420055, 0.8348488518, 0.8092883504, 0.7771032507000001, 0.8445312992, 0.8356159636, 0.7944875601, 0.7467417692, 0.7126140382, 0.7864594030000001, 0.8078612549, 0.748445338, 0.776473584, 0.8446007001, 0.8111756823, 0.7514657632, 0.7557873891, 0.7846770740000001, 0.7806277521, 0.7240377296, 0.7461940606, 0.7858903552000001, 0.7591243701, 0.6942628677, 0.7071269264000001, 0.7101163260000001, 0.6693089284, 0.6212508475, 0.6091667347, 0.5822012293000001, 0.6343503599, 0.540600955, 0.6154276516, 0.5971333168, 0.6564143245, 0.6526210964, 0.7121322528, 0.6843229133000001, 0.7101348964, 0.7002810804, 0.653554072, 0.4817169841, 0.511489041, 0.6268773089, 0.6802358423, 0.6395195087000001, 0.6230151731, 0.6894092879, 0.6503337684, 0.6229700106, 0.6390162948, 0.6583434516000001, 0.6043842928000001, 0.5643934623, 0.6544806143, 0.6111227916, 0.5673800291000001, 0.5237401190000001, 0.6050610974, 0.5976272592, 0.5361893457, 0.5644680799, 0.7171031234, 0.5928719865000001, 0.6710201878000001, 0.8017326625000001, 0.8133922996, 0.6999723727, 0.7327440469000001, 0.8334269058, 0.7824830530000001, 0.6414137039000001, 0.7612848481000001, 0.8328638505, 0.7212449059, 0.7071435988, 0.8315334872, 0.8002688865, 0.7281392434, 0.7322581124, 0.8188009483, 0.7781794022, 0.7792666123, 0.8134700575, 0.8606130248, 0.7923089776000001, 0.7885390596, 0.8182692733, 0.8212289724, 0.8028052370000001, 0.7727520492000001, 0.8397397796, 0.7747655705000001, 0.7571614142, 0.7610164512, 0.7603574851, 0.6842968861000001, 0.6421148406, 0.7063713191000001, 0.8142977991, 0.6383111521, 0.7028228249, 0.6345839408, 0.7331035209, 0.73764042, 0.8516676635, 0.8707149534, 0.8033196238, 0.7576450635, 0.717895758, 0.5618183468, 0.6168980612, 0.6684794398, 0.8125788538000001, 0.7659083288, 0.7757054750000001, 0.7678774988, 0.8148008173, 0.7884901074, 0.7769216487, 0.8029222472, 0.8299709607, 0.7962058365, 0.7657581357000001, 0.7693046848, 0.6939743770000001, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null], "B": [0.800263377, 0.8436835537, 0.8418265287000001, 0.8798506142, 0.8827893666000001, 0.8803451767, 0.8016331986, 0.7473913344, 0.7753934936, 0.7082282696000001, 0.6835493769000001, 0.7793294566000001, 0.7648507774000001, 0.7629844114000001, 0.7891328320000001, 0.8078122493000001, 0.7579234528000001, 0.7315759624, 0.6891038754000001, 0.6257305643000001, 0.7173279991, 0.7060075207000001, 0.7309630979, 0.7337492648, 0.7590844451000001, 0.825181946, 0.8314448805, 0.8197207226000001, 0.8880763777, 0.8680579457, 0.8315437876, 0.8314717605, 0.8185665011000001, 0.7512196723, 0.7546406343000001, 0.7595503578, 0.7840045054, 0.8122823558000001, 0.8372325567000001, 0.7887967942, 0.8467384485, 0.8644827835000001, 0.8250398895000001, 0.8017207019, 0.6609229321, 0.8101058696000001, 0.8009316956, 0.8305034344000001, 0.8613819930000001, 0.7896804166, 0.7829914348, 0.7922582704000001, 0.7813315590000001, 0.7364343616, 0.8485998299, 0.8482125825, 0.8662167551000001, 0.9170457588, 0.9232333985000001, 0.8423143160000001, 0.8618426477000001, 0.8933137184000001, 0.9027685279000001, 0.8669104568, 0.8464850187, 0.7724346523000001, 0.8183939560000001, 0.6173730587, 0.595640535, 0.4636602996, 0.4670982675, 0.4461914011, 0.47446371130000004, 0.7302397053, 0.7807178090000001, 0.7614554204, 0.821275233, 0.8261376147, 0.8371041166000001, 0.8585429773000001, 0.7895094274000001, 0.7843933115, 0.7169419519, 0.7014387938000001, 0.7686270902, 0.7578828278, 0.8041786475, 0.8810210258000001, 0.8601208721, 0.8739999575, 0.8507135026, 0.8663942447, 0.872147486, 0.7844377729, 0.8098704105000001, 0.7743895385, 0.7932824949, 0.8054532497, 0.7754775967, 0.7454945687000001, 0.8230762368000001, 0.7752484423, 0.7373048377, 0.7386374908000001, 0.820007781, 0.7905175214, 0.7579227772, 0.7458785399000001, 0.7494504589000001, 0.7568158769000001, 0.7811173015, 0.746277042, 0.7263909703, 0.7840655763000001, 0.8268102094, 0.8746367827, 0.8659049802000001, 0.8530361981, 0.7703922495000001, 0.7412381658, 0.8269880061, 0.8275671408, 0.7978707144, 0.8106286837000001, 0.7699614427, 0.7746623957000001, 0.792692786, 0.814091451, 0.7221419564, 0.732013782, 0.8161551627, 0.7934669139, 0.7709757472000001, 0.7881159055, 0.8490755123, 0.8457699603000001, 0.7714821602, 0.6392187973, 0.5491991546, 0.4775187967, 0.6056376896, 0.6403645535, 0.7911787337, 0.8262475420000001, 0.8731064339, 0.8430973267, 0.8744825674000001, 0.8981801266, 0.8896355648000001, 0.8600253585000001, 0.8746868918, 0.8364266274000001, 0.7583598373, 0.7217613311000001, 0.6647070608, 0.6637973473000001, 0.7581291259, 0.7603184181, 0.8174258646, 0.8196165809, 0.8260716999000001, 0.8381382017000001, 0.8377760978000001, 0.8690006079, 0.8117243321000001, 0.7774110235, 0.8072545824, 0.7726569107, 0.7450847530000001, 0.8035517932, 0.7609124737, 0.8046348357, 0.8901597990000001, 0.8971048474000001, 0.9287521167, 0.9219047064, 0.8897987997000001, 0.9502218674, 0.9194923951, 0.8808512932, 0.826831808, 0.8476736649000001, 0.7666324391, 0.7351903206, 0.7302972798, 0.8058841041, 0.7636056778, 0.7478561634, 0.7127318971000001, 0.7863178597, 0.7912006917000001, 0.7851654688, 0.7203445705, 0.6686936267, 0.7000481145, 0.6980901805, 0.8675823203, 0.8586874583, 0.9099323453, 0.8435726857, 0.8675588947, 0.8383158962, 0.7813214953000001, 0.7190661204000001, 0.6498826842000001, 0.6997317194, 0.7370554512, 0.7698230131, 0.8125193052, 0.8271606984000001, 0.7978532471, 0.8498706719, 0.756568888, 0.7247749021000001, 0.6572103968, 0.5814424877000001, 0.6352072938000001, 0.6292415763, 0.6968700896000001, 0.7309910828, 0.6926267671, 0.6857244377, 0.7095311765, 0.7354952050000001, 0.8337651862000001, 0.7909811451000001, 0.8540206707, 0.8857588039000001, 0.8861402373, 0.8852800338, 0.861685276, 0.8846512276, 0.8647169210000001, 0.8592182341, 0.7762412327, 0.823968323, 0.7942402659000001, 0.7499042897, 0.7820057043, 0.8563606891000001, 0.8492989002, 0.8718057565, 0.849181034, 0.9178471294, 0.8660352201, 0.9211984316, 0.9058791445000001, 0.9278199541000001, 0.9387833115, 0.9315419597000001, 0.9446317685000001, 0.8157961067, 0.8649898375, 0.9184792281, 0.8614771424000001, 0.8323184066, 0.7983724047, 0.7400207837, 0.6660982994, 0.6403246732, 0.6193530948, 0.5934294092, 0.7399540005, 0.7958747098000001, 0.8258375395, 0.8255393478, 0.7969911478, 0.8149537099, 0.7794136363, 0.7970207619, 0.791408408, 0.7803583669, 0.7394337562000001, 0.7498645166, 0.8207067292, 0.78348971, 0.8407864135, 0.8190948442, 0.8568633112, 0.8301050563, 0.8617591768, 0.8766028959000001, 0.7906155378, 0.88621887, 0.9018681719, 0.8268103626000001, 0.6903338991, 0.6373448713000001, 0.7682185888, 0.7715221457, 0.8251250085, 0.7642105309, 0.7729353247, 0.7862380178, 0.7967224996000001, 0.7498133205, 0.7676542127, 0.7102886161, 0.8028379589, 0.8028929224, 0.8280535302, 0.7367469692, 0.8068318035, 0.8187257883, 0.7553886969, 0.7185675285, 0.8351639818000001, 0.7805442488000001, 0.7957656701, 0.7542026858, 0.7830500986000001, 0.8578947721, 0.7974284557, 0.8890612249000001, 0.9171203008000001, 0.8917262298, 0.9116623220000001, 0.8183781269, 0.687860162, 0.74016213, 0.5345076525, 0.44546565060000004, 0.4428346034, 0.3701706368, 0.3355129156, 0.2757342499, 0.2831567535, 0.6974089907000001, 0.6039036236, 0.6178378412000001, 0.717411761, 0.7611135935000001, 0.6978578541, 0.694839525, 0.6704158408, 0.6580849288, 0.7154050158, 0.6701478124, 0.7231754193000001, 0.7602333242, 0.6504052728, 0.676609232, 0.6962875854, 0.7023302438, 0.6756277707, 0.6469090969, 0.8200739474000001, 0.7947453519000001, 0.8430532809, 0.8817688333, 0.85294673, 0.8256062079, 0.8189127389, 0.8041649086, 0.8119592843000001, 0.6722558790000001, 0.6970482438000001, 0.8376039794, 0.84, 0.8197363963000001, 0.7848721544, 0.8544028984, 0.8485237599000001, 0.8016090482, 0.7570071327, 0.7355217076, 0.8179726376, 0.8300740866, 0.7853807230000001, 0.8130855531000001, 0.8582445616000001, 0.8317866414, 0.7682189118, 0.7694047731, 0.8002176925000001, 0.8044359152, 0.7503282468, 0.7519717885, 0.7929462332, 0.7530118084, 0.6974802009000001, 0.6970560761, 0.6908427761, 0.6522737967000001, 0.6149153867, 0.5986614457, 0.5647963938, 0.6305208646, 0.5597199994000001, 0.6446350912000001, 0.6161248772, 0.6662189476, 0.647857153, 0.711810448, 0.6747742321, 0.7176089316, 0.7154174955, 0.6715063778, 0.5023099004, 0.5391892393000001, 0.6380398239, 0.6785332747, 0.6582768829, 0.6175749737, 0.6789945483000001, 0.6440089182000001, 0.6196823429, 0.6421618191, 0.6455070264, 0.5890799197000001, 0.5598616372, 0.6359067062, 0.589515204, 0.5574735066000001, 0.5231764318000001, 0.6140854518000001, 0.6029494206, 0.5508555209, 0.5569685843000001, 0.7148673355, 0.5982123358, 0.6619643813, 0.7871976289, 0.8006532783, 0.6967786251, 0.7261987159000001, 0.8244759845, 0.7759075669000001, 0.6318821871, 0.7618106065, 0.8095707184000001, 0.7161796066, 0.7056304076000001, 0.830260972, 0.7588317916, 0.7261428937000001, 0.7265443824000001, 0.7992741424, 0.7789678006, 0.7902646670000001, 0.8293069473, 0.8641942206000001, 0.7962975295, 0.7973619202000001, 0.8346093710000001, 0.831639953, 0.8119748567, 0.788333865, 0.8611966484, 0.7884978969, 0.7693279752000001, 0.7754270584, 0.770881421, 0.7060127239, 0.6471561455, 0.689460209, 0.7819173795000001, 0.6404081848000001, 0.6922699544, 0.6186406116000001, 0.7282245036, 0.7460908131, 0.852010224, 0.8729503715, 0.7968350188000001, 0.7353464200000001, 0.7052718871, 0.5635941515, 0.6222076531, 0.6815631430000001, 0.8109741408000001, 0.7747816679, 0.7861975528, 0.7802160243, 0.8301337168, 0.8091150746, 0.7958067704, 0.8413242966000001, 0.8605616060000001, 0.8224852337, 0.7883733853, 0.8086977605000001, 0.7764630521, 0.7663165268000001, 0.7226144692, 0.6437095872, 0.6059412167, 0.5946984256, 0.6150584104, 0.5873641394, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]},
+        'qmean_global':{"interaction_norm_score": -0.0172303649, "qmean6_z_score": -1.1422391773, "torsion_z_score": 0.0565054893, "ss_agreement_z_score": -1.8815446484, "acc_agreement_norm_score": 0.5795221843, "cbeta_norm_score": -0.011798964, "packing_z_score": -0.46079543580000004, "qmean6_norm_score": 0.7194862657000001, "qmean4_z_score": -0.1110450769, "qmean4_norm_score": 0.7596899577, "interaction_z_score": -0.8709232899, "ss_agreement_norm_score": 0.42689782060000003, "avg_local_score": 0.7627505892, "torsion_norm_score": -0.3190233668, "packing_norm_score": -0.33322885290000004, "cbeta_z_score": 0.093722629, "acc_agreement_z_score": -1.2308084768, "avg_local_score_error": 0.053}
+      }
+    
+ }  
+
+ $(document).ready( function()
+   {  
+      drawQMEAN('01')
+   }) ;
+
+function drawQMEAN(id)
+{
+  var resCount = 0;
+  var local_scores = [];
+  for(chain in modelData[id].qmean_local)
+  {
+    var ls = {'chain':chain,'scores':[]};
+
+    for(var i=0; i<modelData[id].qmean_local[chain].length; i++)
+    {
+        ls['scores'].push([i, modelData[id].qmean_local[chain][i]]);
+        if(modelData[id].qmean_local[chain][i])
+          resCount++;
+    }
+    local_scores.push(ls);
+  }
+
+  drawQMEANLocal(local_scores, id);
+
+  drawQMEANGlobal(modelData[id]['qmean_global'], resCount, id, false);
+
+  $('a[rel=lq-'+id+'],a[href="#qn-chart-'+id+'"]')
+    .fancybox(
+      {
+        padding:30, 
+        'cyclic':true,
+        'hideOnContentClick':true,
+        beforeShow:function(a,b)
+        {
+          var id = $(this.content[0]).first().attr('id');
+          if(id.indexOf('lq-chart')>-1)
+            $('#'+id).closest('.fancybox-outer').after(
+               '<a style="color:#666;float:right;" onclick="svgToPNG(\''+id+'\',\'Local_quality_estimate.png\');">&#128247; Save as PNG</a>'
+               );
+          else if(id.indexOf('qn-chart')>-1)
+            $('#'+id).after(
+               '<a style="color:#666;float:right;" onclick="svgToPNG(\''+id+'\',\'Quality_comparison.png\');">&#128247; Save as PNG</a>'
+               );
+        }
+      });
+}
+
+
+
+
+  </script>
+
+  </body>
+</html>
