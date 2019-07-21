@@ -15,6 +15,7 @@ class Shared(object):
         print("Configurations Loaded")
         
         self.swissmodel = SwissModel()
+        self.tasks = {}
 
         self.app = app
 
