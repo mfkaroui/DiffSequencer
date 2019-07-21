@@ -1,2 +1,120 @@
 {% set title = "Dashboard" %}
 {% extends "base.html"%}
+
+{% block js %}
+    <script>
+        (function(window, document, $, undefined)
+        {
+            var CPUChart = new Chart($("#CPUChart"), {
+                type: 'line',
+                data: {
+                    datasets: [
+                        {% for i in range(hardwareStats["cpu_count_logical"]) %}
+                            {
+                                label: 'CPU[{{i}}] Usage (%)',
+                                data: [],
+                                fill: false
+                            },
+                        {% endfor %}
+                    ]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    scales: {
+                        xAxes: [{
+                            display: false,
+                            type: 'linear'
+                        }],
+                        yAxes: [{
+                            display: true,
+                            ticks: {
+                                suggestedMin: 0,
+                                suggestedMax: 100,
+                            }
+                        }]
+                    }
+                }
+            });
+            var memoryChart = new Chart($("#memoryChart"), {
+                type: 'line',
+                data: {
+                    datasets: [
+                        {
+                            label: 'Memory Usage (%)',
+                            data: []
+                        },
+                        {
+                            label: 'Swap Usage (%)',
+                            data: []
+                        }
+                    ]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            display: false,
+                            type: 'linear'
+                        }],
+                        yAxes: [{
+                            display: true,
+                            ticks: {
+                                suggestedMin: 0,
+                                suggestedMax: 100,
+                            }
+                        }]
+                    }
+                }
+            });
+            var hardware_stats = undefined;
+            var dataIndex = 0;
+            hardware_stats = function()
+            {
+                $.get("/backend/hardwareStats", function(data){
+                    dataIndex += 1;
+                    for(let i = 0; i < data.cpu_count_logical; i++)
+                    {
+                        CPUChart.data.datasets[i].data.push({x: dataIndex, y: data.cpu_percent[i]});
+                        if (CPUChart.data.datasets[i].data.length > 10)
+                            CPUChart.data.datasets[i].data.shift();
+                    }
+                    memoryChart.data.datasets[0].data.push({x: dataIndex, y: data.virtual_memory.percent});
+                    if (memoryChart.data.datasets[0].data.length > 10)
+                        memoryChart.data.datasets[0].data.shift();
+                    memoryChart.data.datasets[1].data.push({x: dataIndex, y: data.swap_memory.percent});
+                    if (memoryChart.data.datasets[1].data.length > 10)
+                        memoryChart.data.datasets[1].data.shift();
+                    
+                    CPUChart.update(0);
+                    memoryChart.update(0);
+                });
+                setTimeout(hardware_stats, 2000);
+            }
+            hardware_stats();
+            
+        })(window, document, window.jQuery);
+    </script>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header card-header-icon card-header-rose">
+                    <div class="card-icon">
+                        <i class="material-icons">dns</i>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <canvas id="CPUChart" height="200px"></canvas>
+                        </div>
+                        <div class="col-md-6">
+                            <canvas id="memoryChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
