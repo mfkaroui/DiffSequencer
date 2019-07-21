@@ -1,19 +1,19 @@
 from urllib.parse import urlencode
-import urllib3
+import urllib3 #communicating with swiss model website servers
 import requests
-import json
-import re
-from datetime import datetime as dt
-import time
-import io
-import zipfile as zf
+import json #javascript object notation, read comms from SM
+import re #regex, regular expressions; looking for particular information from data
+from datetime import datetime as dt 
+import time #handling time stamps
+import io 
+import zipfile as zf #filemanagement libraries 
 
 class SwissModel:
     baseurl = "https://swissmodel.expasy.org/interactive/"
-    validateSequenceCache = {}
-    def __init__(self):
+    validateSequenceCache = {} #dictionary, makes sure sequence is valid before sending to SM
+    def __init__(self): #first variable in function belonging to a class has to be called 'self'
         #Get session and tokens
-        response = requests.get(self.baseurl)
+        response = requests.get(self.baseurl) #grabbing variable inside the class 
         if response.ok == True:
             self.sessionCookies = response.cookies
         else:
@@ -25,7 +25,7 @@ class SwissModel:
         else:
             response = requests.post(self.baseurl + "validate", {"target":sequence, "is_alignment":False, "csrfmiddlewaretoken":self.sessionCookies['csrftoken']}, headers={"Referer": "https://swissmodel.expasy.org/interactive"}, cookies=self.sessionCookies)
             if response.ok == True:
-                response = json.loads(response.text)
+                response = json.loads(response.text) #the response from SM
                 if "error" in response:
                     self.validateSequenceCache[sequence] = False
                     print("[SwissModel] Error sequence is invalid - " + sequence)
@@ -34,7 +34,8 @@ class SwissModel:
                     self.validateSequenceCache[response["sequence"][0]["target"]] = True
                     print("[SwissModel] Sequence is valid - " + response["sequence"][0]["target"])
                     return response["sequence"][0]["target"]
-    
+    # validating entire sequence and getting a response back from SM saying this input is valid
+
     def searchTemplates(self, sequence):
         response = requests.post(self.baseurl + "interactive", {"target":sequence, "is_alignment":False, "csrfmiddlewaretoken":self.sessionCookies['csrftoken']}, headers={"Referer": "https://swissmodel.expasy.org/interactive"}, cookies=self.sessionCookies)
         if response.ok == True:
@@ -55,17 +56,17 @@ class SwissModel:
                             templates = json.loads(templates.text)
                             for i in range(len(templates)):
                                 templates[i]["comment"] = json.loads("{\"" + templates[i]["comment"].replace(" ", "\"").replace("=", "\":") + "}")
-                            print("[SwissModel] [" + projectID + "] Recieved " + str(len(templates)) + " templates.")
+                            print("[SwissModel] [" + projectID + "] Recieved " + str(len(templates)) + " templates.") #parsing for comments, need that for sorting the templates
                             return projectID, response, templates
                         break
                     else:
                         for p in response["tpl_search_progress"]["progress"]:
                             if p not in progress:
-                                print("[SwissModel] [" + projectID + "] Search progress - " + p)
-                                progress.append(p)
+                                print("[SwissModel] [" + projectID + "] Search progress - " + p) 
+                                progress.append(p) #status of the template search not completed, so we store the progress
                 else:
                     break
-                time.sleep(2)
+                time.sleep(2)  
         return None, None, None
             
     def buildModel(self, projectID, templateID):
@@ -85,11 +86,11 @@ class SwissModel:
                         response = requests.get(self.baseurl + projectID + "/models/" + modelID + "/report.zip", headers={"Referer": "https://swissmodel.expasy.org/interactive"}, cookies=self.sessionCookies, stream=True)
                         if response.ok == True:
                             print("[SwissModel] [" + projectID + "] Downloading model...")
-                            zipfile = io.BytesIO()
+                            zipfile = io.BytesIO() #creating a zipfile the report
                             for chunk in response.iter_content(chunk_size=None):
                                 zipfile.write(chunk)
                             zipfile.seek(0)
-                            uncompressedZipFile = zf.ZipFile(zipfile)
+                            uncompressedZipFile = zf.ZipFile(zipfile) #unzipping report  
                             print("[SwissModel] [" + projectID + "] Model Downloaded")
                             return uncompressedZipFile
                 else:
