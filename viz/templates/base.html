@@ -1,3 +1,4 @@
+{% set hardwareStats = getHardwareStats() %}
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -27,26 +28,7 @@
                     </a>
                 </div>
                 <div class="sidebar-wrapper">
-                    <ul class="nav">
-                        <li class="nav-item active  ">
-                            <a class="nav-link" href="#0">
-                                <i class="material-icons">dashboard</i>
-                                <p>Dashboard</p>
-                            </a>
-                        </li>
-                        <li class="nav-item active  ">
-                            <a class="nav-link" href="#0">
-                                <i class="material-icons">graphic_eq</i>
-                                <p>Similarity Network</p>
-                            </a>
-                        </li>
-                        <li class="nav-item active  ">
-                            <a class="nav-link" href="#0">
-                                <i class="material-icons">graphic_eq</i>
-                                <p>Model Viewer</p>
-                            </a>
-                        </li>
-                    </ul>
+                    {% include "sidebar.html" %}
                 </div>
             </div>
             <div class="main-panel">
@@ -54,7 +36,7 @@
                 <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
                     <div class="container-fluid">
                         <div class="navbar-wrapper">
-                            <a class="navbar-brand" href="#pablo">Dashboard</a>
+                            <a class="navbar-brand" href="javascript:void(0);">{{title}}</a>
                         </div>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="sr-only">Toggle navigation</span>
@@ -67,7 +49,8 @@
                 <!-- End Navbar -->
                 <div class="content">
                     <div class="container-fluid">
-                        <!-- your content here -->
+                        {% block content %}
+                        {% endblock %}
                     </div>
                 </div>
                 <footer class="footer">
