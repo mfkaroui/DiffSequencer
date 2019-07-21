@@ -1,5 +1,6 @@
 import json
 import psutil as psu
+from swissmodel import SwissModel
 
 class Shared(object):
     
@@ -13,6 +14,8 @@ class Shared(object):
             self.__dict__[element] = c[element]
         print("Configurations Loaded")
         
+        self.swissmodel = SwissModel()
+
         self.app = app
 
         def get_hardware_stats():

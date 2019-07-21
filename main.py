@@ -2,7 +2,7 @@ import os
 import flask
 from multiprocessing.pool import Pool as mpp
 from multiprocessing.dummy import Pool as ThreadPool
-from swissmodel import SwissModel
+
 from viz import views
 
 seqDir = "sequences"
@@ -12,7 +12,7 @@ workingDir = os.path.dirname(os.path.realpath(__file__))
 seqDir = os.path.join(workingDir, seqDir)
 outputDir = os.path.join(workingDir, outputDir)
 
-sm = SwissModel()
+
 def validateSequence(s):
     global sm
     return sm.validateSequence(s) is not None
