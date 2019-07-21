@@ -28,10 +28,12 @@ def getModel(s):
     return sm.buildModel(projectID, templates[0]["id"])
 
 
+
+
 if __name__ == "__main__":
     print("Loading data visualizer...")
     
-    #views.initializeViews(workingDir)
+    views.initializeViews(workingDir)
     #get all sequences in directory
     sequences = {}
     for fileName in os.listdir(seqDir):
