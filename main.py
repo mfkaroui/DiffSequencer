@@ -1,6 +1,7 @@
 import os
 import flask
 from multiprocessing.pool import Pool as mpp
+from multiprocessing.dummy import Pool as ThreadPool
 from swissmodel import SwissModel
 from viz import views
 
@@ -26,10 +27,11 @@ def getModel(s):
     templates.sort(key=lambda t: float(t["comment"]["prob"]) if "prob" in t["comment"] else 0.0)
     return sm.buildModel(projectID, templates[0]["id"])
 
+
 if __name__ == "__main__":
     print("Loading data visualizer...")
     
-    views.initializeViews(workingDir)
+    #views.initializeViews(workingDir)
     #get all sequences in directory
     sequences = {}
     for fileName in os.listdir(seqDir):
@@ -39,10 +41,10 @@ if __name__ == "__main__":
                 if seq is not None:
                     seqPath = os.path.join(outputDir, fileName[:-4])
                     if os.path.isdir(seqPath) == False:
-                        os.mkdir(seqPath)
+                        os.makedirs(seqPath)
                     sequences[fileName[:-4]] = seq
     sequencevalues = list(sequences.values())
-    pool = mpp(len(sequencevalues))
+    '''pool = ThreadPool(len(sequencevalues))
     reports = pool.map(getModel, sequencevalues)
     pool.close()
     pool.join()
@@ -63,7 +65,7 @@ if __name__ == "__main__":
             with open(os.path.join(fpath, fname), "wb") as fhandle:
                 fhandle.seek(0)
                 fhandle.truncate()
-                fhandle.write(data)
+                fhandle.write(data)'''
     print("Found " + str(len(sequences)) + " sequences")
     fragmentDir = os.path.join(outputDir, "Fragments")
     if os.path.isdir(fragmentDir) == False:
@@ -112,7 +114,7 @@ if __name__ == "__main__":
                             flatSubSeqs.append(seq)
     print("Found " + str(len(flatSubSeqs)) + " shared sequence fragments")
     print("Getting models for sequence fragments...")
-    pool = mpp(len(flatSubSeqs))
+    pool = ThreadPool(len(flatSubSeqs))
     reports = pool.map(getModel, flatSubSeqs)
     pool.close()
     pool.join()
