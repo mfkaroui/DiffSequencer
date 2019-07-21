@@ -1,6 +1,7 @@
 import flask
 import flask_classful as flaskc
 import os
+import json
 from viz import shared
 
 class MainView(flaskc.FlaskView):
@@ -24,9 +25,19 @@ class BackendView(flaskc.FlaskView):
     def hardwareStats(self):
         return flask.jsonify(self.sharedVars.getHardwareStats())
 
-    @flaskc.route("/sequences/list", methods=["GET"])
-    def sequences_list(self):
-        pass
+    @flaskc.route("/sequence/validate", methods=["POST"])
+    def sequence_validate(self):
+        try:
+            requestForm = flask.request.get_json()
+            if "sequence" in requestForm:
+                result = self.sm.validateSequence(requestForm["sequence"])
+                if result is not None:
+                    return flask.jsonify(result)
+                else:
+                    return flask.abort(404)
+        except:
+            return flask.abort(404)
+    
     
 
 def initializeViews(workingDIR):
