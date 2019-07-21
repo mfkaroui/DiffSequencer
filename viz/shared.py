@@ -1,4 +1,5 @@
 import json
+import psutil as psu
 
 class Shared(object):
     
@@ -12,3 +13,20 @@ class Shared(object):
             self.__dict__[element] = c[element]
         print("Configurations Loaded")
         
+        self.app = app
+
+        def get_hardware_stats():
+            return self.getHardwareStats()
+        self.app.jinja_env.globals.update(getHardwareStats=get_hardware_stats)
+
+
+    def getHardwareStats(self):
+        return {
+            "cpu_count_physical" : psu.cpu_count(False),
+            "cpu_count_logical" : psu.cpu_count(),
+            "cpu_freq" : dict(psu.cpu_freq()._asdict()),
+            "cpu_percent_total" : psu.cpu_percent(percpu=False),
+            "cpu_percent" : psu.cpu_percent(percpu=True),
+            "swap_memory" : dict(psu.swap_memory()._asdict()),
+            "virtual_memory" : dict(psu.virtual_memory()._asdict())
+        }
