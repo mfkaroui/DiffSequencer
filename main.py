@@ -12,7 +12,6 @@ workingDir = os.path.dirname(os.path.realpath(__file__))
 seqDir = os.path.join(workingDir, seqDir)
 outputDir = os.path.join(workingDir, outputDir)
 
-
 def validateSequence(s):
     global sm
     return sm.validateSequence(s) is not None
@@ -26,9 +25,6 @@ def getModel(s):
     projectID, response, templates = sm.searchTemplates(s)
     templates.sort(key=lambda t: float(t["comment"]["prob"]) if "prob" in t["comment"] else 0.0)
     return sm.buildModel(projectID, templates[0]["id"])
-
-
-
 
 if __name__ == "__main__":
     print("Loading data visualizer...")
