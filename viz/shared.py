@@ -16,6 +16,9 @@ class Shared(object):
         
         self.swissmodel = SwissModel()
         self.tasks = {}
+        self.requests = []
+        self.sequences = []
+        self.sequenceFragments = []
 
         self.app = app
 
