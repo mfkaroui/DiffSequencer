@@ -2,7 +2,7 @@ TITLE     SWISS-MODEL SERVER (https://swissmodel.expasy.org)
 TITLE    2 Untitled Project
 EXPDTA    THEORETICAL MODEL (SWISS-MODEL SERVER)
 AUTHOR    SWISS-MODEL SERVER (SEE REFERENCE IN JRNL Records)
-REVDAT   1   15-JUL-19 1MOD    1       03:26
+REVDAT   1   03-AUG-19 1MOD    1       00:57
 JRNL        AUTH   A.WATERHOUSE,M.BERTONI,S.BIENERT,G.STUDER,G.TAURIELLO,
 JRNL        AUTH 2 R.GUMIENNY,F.T.HEER,T.A.P.DE BEER,C.REMPFER,L.BORDOLI,
 JRNL        AUTH 3 R.LEPORE,T.SCHWEDE
@@ -99,9 +99,9 @@ REMARK   3 TEMPLATE 1
 REMARK   3  PDBID   6ona
 REMARK   3  CHAIN   A
 REMARK   3  MMCIF   A
-REMARK   3  PDBV    2019-07-05
+REMARK   3  PDBV    2019-07-26
 REMARK   3  SMTLE   6ona.1.A
-REMARK   3  SMTLV   2019-07-11
+REMARK   3  SMTLV   2019-07-31
 REMARK   3  MTHD    X-RAY DIFFRACTION 1.95 A
 REMARK   3  FOUND   BLAST
 REMARK   3  SIM     0.36
@@ -3042,14 +3042,14 @@ ATOM   2895  C   SER A 383       0.803 -32.858  21.868  1.00  0.51           C
 ATOM   2896  O   SER A 383       1.555 -32.381  22.712  1.00  0.51           O  
 ATOM   2897  CB  SER A 383      -0.706 -31.356  20.601  1.00  0.51           C  
 ATOM   2898  OG  SER A 383      -0.759 -30.428  19.517  1.00  0.51           O  
-ATOM   2899  N   LEU A 384       0.175 -34.023  22.111  1.00  0.55           N  
-ATOM   2900  CA  LEU A 384       0.438 -34.807  23.309  1.00  0.55           C  
-ATOM   2901  C   LEU A 384       1.877 -35.322  23.416  1.00  0.55           C  
-ATOM   2902  O   LEU A 384       2.440 -35.367  24.508  1.00  0.55           O  
-ATOM   2903  CB  LEU A 384      -0.558 -35.988  23.448  1.00  0.55           C  
-ATOM   2904  CG  LEU A 384      -2.025 -35.562  23.687  1.00  0.55           C  
-ATOM   2905  CD1 LEU A 384      -2.961 -36.774  23.593  1.00  0.55           C  
-ATOM   2906  CD2 LEU A 384      -2.228 -34.869  25.043  1.00  0.55           C  
+ATOM   2899  N   LEU A 384       0.175 -34.023  22.111  1.00  0.54           N  
+ATOM   2900  CA  LEU A 384       0.438 -34.807  23.309  1.00  0.54           C  
+ATOM   2901  C   LEU A 384       1.877 -35.322  23.416  1.00  0.54           C  
+ATOM   2902  O   LEU A 384       2.440 -35.367  24.508  1.00  0.54           O  
+ATOM   2903  CB  LEU A 384      -0.558 -35.988  23.448  1.00  0.54           C  
+ATOM   2904  CG  LEU A 384      -2.025 -35.562  23.687  1.00  0.54           C  
+ATOM   2905  CD1 LEU A 384      -2.961 -36.774  23.593  1.00  0.54           C  
+ATOM   2906  CD2 LEU A 384      -2.228 -34.869  25.043  1.00  0.54           C  
 ATOM   2907  N   SER A 385       2.515 -35.736  22.301  1.00  0.61           N  
 ATOM   2908  CA  SER A 385       3.909 -36.171  22.313  1.00  0.61           C  
 ATOM   2909  C   SER A 385       4.948 -35.054  22.257  1.00  0.61           C  
@@ -6951,14 +6951,14 @@ ATOM   6804  CG  GLU B 408      24.368 -32.498  39.340  1.00  0.56           C
 ATOM   6805  CD  GLU B 408      25.101 -33.791  39.001  1.00  0.56           C  
 ATOM   6806  OE1 GLU B 408      24.585 -34.879  39.358  1.00  0.56           O  
 ATOM   6807  OE2 GLU B 408      26.210 -33.728  38.407  1.00  0.56           O  
-ATOM   6808  N   LEU B 409      20.676 -31.924  42.296  1.00  0.56           N  
-ATOM   6809  CA  LEU B 409      19.349 -31.981  42.897  1.00  0.56           C  
-ATOM   6810  C   LEU B 409      18.545 -30.692  42.717  1.00  0.56           C  
-ATOM   6811  O   LEU B 409      17.370 -30.736  42.359  1.00  0.56           O  
-ATOM   6812  CB  LEU B 409      19.434 -32.338  44.406  1.00  0.56           C  
-ATOM   6813  CG  LEU B 409      18.100 -32.305  45.194  1.00  0.56           C  
-ATOM   6814  CD1 LEU B 409      17.048 -33.253  44.606  1.00  0.56           C  
-ATOM   6815  CD2 LEU B 409      18.344 -32.670  46.665  1.00  0.56           C  
+ATOM   6808  N   LEU B 409      20.676 -31.924  42.296  1.00  0.55           N  
+ATOM   6809  CA  LEU B 409      19.349 -31.981  42.897  1.00  0.55           C  
+ATOM   6810  C   LEU B 409      18.545 -30.692  42.717  1.00  0.55           C  
+ATOM   6811  O   LEU B 409      17.370 -30.736  42.359  1.00  0.55           O  
+ATOM   6812  CB  LEU B 409      19.434 -32.338  44.406  1.00  0.55           C  
+ATOM   6813  CG  LEU B 409      18.100 -32.305  45.194  1.00  0.55           C  
+ATOM   6814  CD1 LEU B 409      17.048 -33.253  44.606  1.00  0.55           C  
+ATOM   6815  CD2 LEU B 409      18.344 -32.670  46.665  1.00  0.55           C  
 ATOM   6816  N   ASP B 410      19.160 -29.507  42.919  1.00  0.54           N  
 ATOM   6817  CA  ASP B 410      18.533 -28.212  42.697  1.00  0.54           C  
 ATOM   6818  C   ASP B 410      18.134 -28.021  41.229  1.00  0.54           C  

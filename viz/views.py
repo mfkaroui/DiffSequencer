@@ -3,6 +3,16 @@ import flask_classful as flaskc
 import os
 import json
 from viz import shared
+from multiprocessing import Process
+import threading
+from datetime import datetime as dt
+import time
+import sys
+
+def getModel(sm, s, result):
+    projectID, response, templates = sm.searchTemplates(s)
+    templates.sort(key=lambda t: float(t["comment"]["prob"]) if "prob" in t["comment"] else 0.0)
+    result["getmodel_" + s] = sm.buildModel(projectID, templates[0]["id"])
 
 class MainView(flaskc.FlaskView):
     route_base = "/"
@@ -29,30 +39,20 @@ class BackendView(flaskc.FlaskView):
     def hardwareStats(self):
         return flask.jsonify(self.sharedVars.getHardwareStats())
 
-    @flaskc.route("/outgoingRequests", methods=["GET"])
-    def outgoingRequests(self):
-        return flask.jsonify(self.sharedVars.requests)
-
     @flaskc.route("/sequence/validate", methods=["POST"])
     def sequence_validate(self):
         try:
             requestForm = flask.request.get_json()
             if "sequence" in requestForm:
-                self.sharedVars.requests.append({
-                    "Type" : "Sequence Validate",
-                    "Source" : "SwissModel",
-                    "Data" : {
-                        "Sequence" : requestForm["sequence"]
-                    }
-                })
-                result = self.sm.validateSequence(requestForm["sequence"])
+                requestForm["sequence"] = requestForm["sequence"].replace("\n", "")
+                result = self.sharedVars.swissmodel.validateSequence(requestForm["sequence"])
                 if result is not None:
                     return flask.jsonify(result)
                 else:
                     return flask.abort(404)
         except:
-            return flask.abort(404)
-    
+            return flask.abort(405)
+
     @flaskc.route("/sequence/list", methods=["GET"])
     def sequence_list(self):
         return flask.jsonify(self.sharedVars.sequences)
@@ -61,9 +61,36 @@ class BackendView(flaskc.FlaskView):
     def sequence_fragement_list(self):
         return flask.jsonify(self.sharedVars.sequenceFragments)
 
+    @flaskc.route("/sequence/add", methods=["POST"])
+    def sequence_add(self):
+        requestForm = flask.request.get_json()
+        if "sequence" in requestForm and "sequenceName" in requestForm:
+            timestamp = str(int(dt.utcnow().timestamp()))
+            self.sharedVars.sequences[requestForm["sequenceName"]] = requestForm["sequence"]
+            self.sharedVars.tasks["sequence-add-" + timestamp] = {
+                "type" : "sequence-add",
+                "startTime" : timestamp,
+                "sequenceName" : requestForm["sequenceName"],
+                "status" : "running"
+            }
+            def taskThread(sharedVars):
+                taskResults = sharedVars.taskResults.dict()
+                getModelProcess = Process(target=getModel, args=(sharedVars.swissmodel, self.sharedVars.sequences[requestForm["sequenceName"]], taskResults))
+                getModelProcess.daemon = True
+                getModelProcess.start()
+                while getModelProcess.is_alive():
+                    time.sleep(1)
+                sharedVars.tasks["sequence-add-" + timestamp]["status"] = "completed"
+                sharedVars.saveModel(taskResults["getmodel_" + sharedVars.sequences[requestForm["sequenceName"]]], requestForm["sequenceName"])
+
+            th = threading.Thread(target=taskThread, args=(self.sharedVars,))
+            th.daemon = True
+            th.start()
+            return flask.jsonify(self.sharedVars.tasks["sequence-add-" + timestamp] )
+
 def initializeViews(workingDIR):
     app = flask.Flask("Viz", template_folder=os.path.join(workingDIR, "viz/templates"), static_folder=os.path.join(workingDIR, "viz/static"))
-    variables = shared.Shared(app, os.path.join(workingDIR, "data/config.json"))
+    variables = shared.Shared(app, os.path.join(workingDIR, "output/"), os.path.join(workingDIR, "data/config.json"))
     MainView.register(app, init_argument=variables)
     BackendView.register(app, init_argument=variables)
     app.run(host="0.0.0.0", port="1337", debug=True)

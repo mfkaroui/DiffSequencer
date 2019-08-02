@@ -2,7 +2,134 @@
 {% extends "base.html"%}
 
 {% block js %}
+    <script>
+        (function(window, document, $, undefined)
+        {
+            var sequenceUpdate = undefined;
+            sequenceUpdate = function()
+            {
+                $.get("/backend/sequence/list", function(sequences)
+                {
+                    $.each(Object.keys(sequences), function(sequenceIndex, sequenceName)
+                    {
+
+                    });
+                });
+                setTimeout(sequenceUpdate, 1000);
+            }
+            sequenceUpdate();
+
+            $("#submitSequence").click(function()
+            {
+                $.ajax
+                ({
+                    type: "POST",
+                    url: "/backend/sequence/validate",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: 'json',
+                    data: JSON.stringify({
+                        "sequence": $("#sequence").val()
+                    }),
+                    success: function(data){
+                        $.ajax
+                        ({
+                            type: "POST",
+                            url: "/backend/sequence/add",
+                            contentType: "application/json; charset=utf-8",
+                            dataType: 'json',
+                            data: JSON.stringify({
+                                "sequenceName": $("#sequenceName").val(),
+                                "sequence": data
+                            }),
+                            success: function(data){
+                                $.notify({
+                                    icon: "add_alert",
+                                    message: "The sequence has been added. Please check the status below."
+
+                                },{
+                                    type: 'success',
+                                    timer: 1000
+                                });
+                            },
+                            error: function (jqXHR, textStatus, errorThrown) {
+                                $.notify({
+                                    icon: "add_alert",
+                                    message: "The backend could not process your request."
+
+                                },{
+                                    type: 'danger',
+                                    timer: 1000
+                                });
+                            }
+                        });
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        switch (jqXHR.status)
+                        {
+                            case 404:
+                                $.notify({
+                                    icon: "add_alert",
+                                    message: "The current sequence you entered is not valid. Please try again."
+
+                                },{
+                                    type: 'danger',
+                                    timer: 1000
+                                });
+                                break;
+                            case 405:
+                                $.notify({
+                                    icon: "add_alert",
+                                    message: "The backend could not process your request."
+
+                                },{
+                                    type: 'danger',
+                                    timer: 1000
+                                });
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                });
+            });
+        })(window, document, window.jQuery);
+    </script>
 {% endblock %}
 
 {% block content %}
+    <div class="row">
+        <div class="card col-md-9 m-auto">
+            <div class="card-header card-header-info">
+                Add Amino Acid Sequence
+            </div>
+            <div class="card-body">
+                <div class="form-group bmd-form-group">
+                    <label for="sequenceName" class="bmd-label-static">Sequence Name</label>
+                    <input type="text" class="form-control" id="sequenceName" aria-describedby="sequenceNameHelp" placeholder="Enter a sequence name">
+                    <small id="sequenceNameHelp" class="form-text text-muted">Please enter a unique name for your amino acid sequence.</small>
+                </div>
+                <div class="form-group bmd-form-group">
+                    <label for="sequence" class="bmd-label-static">Sequence</label>
+                    <br>
+                    <textarea class="form-control" id="sequence" aria-describedby="sequenceHelp" placeholder="Enter a sequence"></textarea>
+                    <small id="sequenceHelp" class="form-text text-muted">Sequences must be atleast 30 characters long.</small>
+                </div>
+                <div id="submitSequence" class="btn btn-info">Submit</div>
+            </div>
+        </div>
+    </div>
+    <div id="sequenceList" class="row pt-4">
+        {% for sequenceName in sequences %}
+            <div data-sequencename="{{sequenceName}}" class="col-md-4 px-2">
+                <div class="card">
+                    <div class="card-header card-header-info">
+                        {{sequenceName}}
+                    </div>
+                    <div class="card-body">
+                        
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}

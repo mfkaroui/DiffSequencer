@@ -1,10 +1,12 @@
 import json
 import psutil as psu
+import os
 from swissmodel import SwissModel
+from multiprocessing import Manager
 
 class Shared(object):
     
-    def __init__(self, app, configurationPath):
+    def __init__(self, app, outputPath, configurationPath):
         configurationFile = open(configurationPath, "r")
         configurationFile.seek(0)
         configurationSerialized = configurationFile.read()
@@ -14,10 +16,22 @@ class Shared(object):
             self.__dict__[element] = c[element]
         print("Configurations Loaded")
         
+        self.outputPath = outputPath
+
         self.swissmodel = SwissModel()
         self.tasks = {}
-        self.requests = []
-        self.sequences = []
+        self.taskResults = Manager()
+        self.sequences = {}
+
+        for f in os.listdir(self.outputPath):
+            fullPath = os.path.join(self.outputPath, f)
+            if os.path.isdir(fullPath) and "report.html" in list(os.listdir(fullPath)):
+                with open(os.path.join(fullPath, "model/01/report.json"), "r") as modelReportFile:
+                    modelReportFile.seek(0)
+                    modelReportSerialized = modelReportFile.read()
+                    modelReportDeserialized = json.loads(modelReportSerialized)
+                    self.sequences[f] = modelReportDeserialized["modelling"]["trg_seq"]
+
         self.sequenceFragments = []
 
         self.app = app
@@ -25,7 +39,8 @@ class Shared(object):
         def get_hardware_stats():
             return self.getHardwareStats()
         self.app.jinja_env.globals.update(getHardwareStats=get_hardware_stats)
-
+        self.app.jinja_env.globals.update(sequences=self.sequences)
+        self.app.jinja_env.globals.update(sequenceFragments=self.sequenceFragments)
 
     def getHardwareStats(self):
         return {
@@ -37,3 +52,20 @@ class Shared(object):
             "swap_memory" : dict(psu.swap_memory()._asdict()),
             "virtual_memory" : dict(psu.virtual_memory()._asdict())
         }
+
+    def saveModel(self, zipFile, sequenceName):
+        seqPath = os.path.join(self.outputPath, sequenceName)
+        
+        for f in zipFile.filelist:
+            fpath = f.filename.split("/")
+            fname = fpath[-1]
+            del fpath[-1]
+            fpath[0] = seqPath
+            fpath = os.path.join(*fpath)
+            if os.path.isdir(fpath) == False:
+                os.makedirs(fpath)
+            data = zipFile.read(f.filename)
+            with open(os.path.join(fpath, fname), "wb") as fhandle:
+                fhandle.seek(0)
+                fhandle.truncate()
+                fhandle.write(data)
