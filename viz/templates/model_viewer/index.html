@@ -1,0 +1,48 @@
+{% set title = "Model Viewer" %}
+{% extends "base.html"%}
+
+{% block js %}
+    <script>
+        (function(window, document, $, undefined)
+        {
+            $("#sequenceSelect").select2({theme: 'bootstrap4'});
+            
+        })(window, document, window.jQuery);
+    </script>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-12 px-2">
+            <div class="card">
+                <div class="card-header card-header-success">
+                    Available Models
+                </div>
+                <div class="card-body">
+                    <select id="sequenceSelect" class="form-control" name="sequence">
+                        <optgroup label="Sequences">
+                            {% for sequenceName in sequences %}
+                                <option value="{{sequenceName}}">{{sequenceName}}</option>
+                            {% endfor %}
+                        </optgroup>
+                        <optgroup label="Fragments">
+
+                        </optgroup>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 px-2">
+            <div class="card">
+                <div class="card-header card-header-success">
+                    Viewer
+                </div>
+                <div class="card-body">
+                    <div id="viewer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
