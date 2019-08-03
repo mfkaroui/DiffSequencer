@@ -28,6 +28,10 @@ class MainView(flaskc.FlaskView):
     @flaskc.route("/sequences", methods=["GET"])
     def sequences(self):
         return flask.render_template("sequences/index.html")
+    
+    @flaskc.route("/model_viewer", methods=["GET"])
+    def model_viewer(self):
+        return flask.render_template("model_viewer/index.html")
 
 class BackendView(flaskc.FlaskView):
     route_base = "/backend/"
