@@ -29,6 +29,10 @@ class MainView(flaskc.FlaskView):
     def sequences(self):
         return flask.render_template("sequences/index.html")
     
+    @flaskc.route("/similarity_network", methods=["GET"])
+    def similarity_network(self):
+        return flask.render_template("similarity_network/index.html")
+
     @flaskc.route("/model_viewer", methods=["GET"])
     def model_viewer(self):
         return flask.render_template("model_viewer/index.html")
