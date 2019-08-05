@@ -92,6 +92,15 @@ class BackendView(flaskc.FlaskView):
             th.start()
             return flask.jsonify(self.sharedVars.tasks["sequence-add-" + timestamp] )
 
+    @flaskc.route("/sequence/pdb", methods=["POST"])
+    def sequence_pdb(self):
+        requestForm = flask.request.get_json()
+        if "sequenceName" in requestForm and requestForm["sequenceName"] in self.sharedVars.sequences:
+            pdbPath = os.path.join(self.sharedVars.outputPath, requestForm["sequenceName"] + "/model/01/model.pdb")
+            if os.path.exists(pdbPath):
+                return flask.send_file(pdbPath, attachment_filename='model.pdb', mimetype="chemical/x-pdb")
+        return flask.abort(404)
+
 def initializeViews(workingDIR):
     app = flask.Flask("Viz", template_folder=os.path.join(workingDIR, "viz/templates"), static_folder=os.path.join(workingDIR, "viz/static"))
     variables = shared.Shared(app, os.path.join(workingDIR, "output/"), os.path.join(workingDIR, "data/config.json"))
