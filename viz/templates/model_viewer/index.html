@@ -6,7 +6,52 @@
         (function(window, document, $, undefined)
         {
             $("#sequenceSelect").select2({theme: 'bootstrap4'});
-            
+            var options = {
+              width: "auto",
+              height: "auto",
+              antialias: true,
+              quality : 'high',
+              fog: false
+            };
+            // insert the viewer under the Dom element with id 'gl'.
+            var viewer = pv.Viewer($("#viewer")[0], options);
+            $('#sequenceSelect').on("select2:select", function(e) { 
+                var data = e.params.data;
+                $.ajax
+                ({
+                    type: "POST",
+                    url: "/backend/sequence/pdb",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: 'json',
+                    data: JSON.stringify({
+                        "sequenceName": data.id
+                    }),
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        switch (jqXHR.status)
+                        {
+                            case 200:
+                                let structure = pv.io.pdb(jqXHR.responseText)
+                                
+                                viewer.cartoon('protein', structure);
+                                viewer.ballsAndSticks('ligand', structure);
+                                viewer.fitTo(structure);
+                                break;
+                            case 404:
+                                $.notify({
+                                    icon: "add_alert",
+                                    message: "The pdb could not be found for the selected sequence."
+
+                                },{
+                                    type: 'danger',
+                                    timer: 1000
+                                });
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                });
+            });
         })(window, document, window.jQuery);
     </script>
 {% endblock %}
@@ -40,7 +85,7 @@
                     Viewer
                 </div>
                 <div class="card-body">
-                    <div id="viewer"></div>
+                    <div id="viewer" style="height: 600px"></div>
                 </div>
             </div>
         </div>
