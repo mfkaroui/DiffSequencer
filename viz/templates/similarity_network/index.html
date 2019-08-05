@@ -12,5 +12,32 @@
 
 {% block content %}
     <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header card-header-info">
+                    Configurations
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-2">
+                            {% for sequenceName in sequences %}
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="checkbox" value="">
+                                        {{sequenceName}}
+                                        <span class="form-check-sign">
+                                            <span class="check"></span>
+                                        </span>
+                                    </label>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="col-md-2">
+                            <div class="btn btn-primary">Compute</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}
