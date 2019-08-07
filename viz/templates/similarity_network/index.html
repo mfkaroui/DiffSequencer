@@ -5,7 +5,10 @@
     <script>
         (function(window, document, $, undefined)
         {
-            
+            $("#compute").click(function()
+            {
+
+            });
         })(window, document, window.jQuery);
     </script>
 {% endblock %}
@@ -33,9 +36,29 @@
                             {% endfor %}
                         </div>
                         <div class="col-md-2">
-                            <div class="btn btn-primary">Compute</div>
+                            <div id="compute" class="btn btn-primary">Compute</div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header card-header-info">
+                    Similarity Matrix
+                </div>
+                <div class="card-body">
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header card-header-info">
+                    Similarity Network
+                </div>
+                <div class="card-body">
+                    
                 </div>
             </div>
         </div>
