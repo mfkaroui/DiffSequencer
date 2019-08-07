@@ -16,6 +16,8 @@ class Shared(object):
             self.__dict__[element] = c[element]
         print("Configurations Loaded")
         
+        self.nworkers = psu.cpu_count()
+
         self.outputPath = outputPath
 
         self.swissmodel = SwissModel()
@@ -32,7 +34,7 @@ class Shared(object):
                     modelReportDeserialized = json.loads(modelReportSerialized)
                     self.sequences[f] = modelReportDeserialized["modelling"]["trg_seq"]
 
-        self.sequenceFragments = []
+        self.sequenceFragments = {}
 
         self.app = app
 
@@ -55,7 +57,6 @@ class Shared(object):
 
     def saveModel(self, zipFile, sequenceName):
         seqPath = os.path.join(self.outputPath, sequenceName)
-        
         for f in zipFile.filelist:
             fpath = f.filename.split("/")
             fname = fpath[-1]
