@@ -16,8 +16,16 @@ def getModel(sm, s, result):
     templates.sort(key=lambda t: float(t["comment"]["prob"]) if "prob" in t["comment"] else 0.0)
     result["getmodel_" + s] = sm.buildModel(projectID, templates[0]["id"])
 
+def extractFragments(sequence, n):
+    fragments = []
+    for i in range(0, len(sequence) - n):
+        s = slice(i, i+n)
+        if sequence[s] not in fragments:
+            fragments.append(sequence[s])
+    return fragments
+
 def compareSequenceToFragment(sequence, fragment):
-    return (sequence.find(fragment) != -1)
+    return (sequence.find(fragment) > -1)
 
 class MainView(flaskc.FlaskView):
     route_base = "/"
@@ -78,7 +86,7 @@ class BackendView(flaskc.FlaskView):
     def sequence_add(self):
         requestForm = flask.request.get_json()
         if "sequence" in requestForm and "sequenceName" in requestForm:
-            timestamp = str(int(dt.utcnow().timestamp()))
+            timestamp = str(dt.utcnow().timestamp())
             self.sharedVars.sequences[requestForm["sequenceName"]] = requestForm["sequence"]
             self.sharedVars.tasks["sequence-add-" + timestamp] = {
                 "type" : "sequence-add",
@@ -106,35 +114,44 @@ class BackendView(flaskc.FlaskView):
     def sequence_compare(self):
         requestForm = flask.request.get_json()
         if "sequenceNames" in requestForm:
-            timestamp = str(int(dt.utcnow().timestamp()))
+            timestamp = str(dt.utcnow().timestamp())
             self.sharedVars.tasks["sequence-compare-" + timestamp] = {
                 "type" : "sequence-compare",
                 "startTime" : timestamp,
                 "sequenceNames" : requestForm["sequenceNames"],
-                "status" : "running"
+                "status" : "running",
+                "messages" : []
             }
             def taskThread(sharedVars):
                 fragments = []
                 for sequenceName in requestForm["sequenceNames"]:
-                    sequence = sharedVars.sequences[sequenceName]
-                    for n in range(30, len(sequence)):
-                        for i in range(len(sequence) - n):
-                            s = slice(i, i+n)
-                            if sequence[s] not in fragments:
-                                fragments.append(sequence[s])
+                    if sequenceName in sharedVars.sequences:
+                        sharedVars.tasks["sequence-compare-" + timestamp]["messages"].append("Computing fragments for " + sequenceName)
+                        sequence = sharedVars.sequences[sequenceName]
+                        pool = mpp(sharedVars.nworkers)
+                        f = pool.starmap(extractFragments, zip(it.repeat(sequence), range(30, len(sequence))))
+                        pool.close()
+                        pool.join()
+                        del pool
+                        fragments.append(list(set().union(*f)))
+                
+                fragments = list(set().union(*fragments))
 
                 pool = mpp(sharedVars.nworkers)
                 sequenceResults = {}
                 for sequenceName in requestForm["sequenceNames"]:
-                    sequence = sharedVars.sequences[sequenceName] 
-                    taskResults = pool.starmap(compareSequenceToFragment, zip(it.repeat(sequence), fragments))
-                    sequenceResults[sequenceName] = taskResults
+                    if sequenceName in sharedVars.sequences:
+                        sharedVars.tasks["sequence-compare-" + timestamp]["messages"].append("Finding fragment occurences in " + sequenceName)
+                        sequence = sharedVars.sequences[sequenceName] 
+                        taskResults = pool.starmap(compareSequenceToFragment, zip(it.repeat(sequence), fragments))
+                        sequenceResults[sequenceName] = taskResults
                 pool.close()
                 pool.join()
                 del pool
-
+                
                 fragmentCount = {}
                 for sequenceName in sequenceResults:
+                    sharedVars.tasks["sequence-compare-" + timestamp]["messages"].append("Cleaning fragment results for " + sequenceName)
                     for i in range(len(fragments)):
                         if sequenceResults[sequenceName][i]:
                             if fragments[i] in fragmentCount:
@@ -146,10 +163,48 @@ class BackendView(flaskc.FlaskView):
                     if fragmentCount[fragment] <= 1:
                         fragmentCount.pop(fragment)
 
-                for fragment_a in fragments:
-                    for fragment_b in fragments:
-                        if len(fragment_a) < len(fragment_b) and fragmentCount[fragment_a] <= fragmentCount[fragment_b] and (fragment_b.find(fragment_a) != -1):
-                            fragmentCount.pop(fragment_a)
+                validFragments = list(fragmentCount.keys())
+                sharedVars.tasks["sequence-compare-" + timestamp]["messages"].append("Checking for maximal containment between fragments")
+                for fragment_a in validFragments:
+                    for fragment_b in validFragments:
+                        if fragment_a in fragmentCount and fragment_b in fragmentCount:
+                            if len(fragment_b) < len(fragment_a) and (fragment_a.find(fragment_b) > -1):
+                                if fragmentCount[fragment_a] == fragmentCount[fragment_b]:
+                                    fragmentCount.pop(fragment_b)
+                                else:
+                                    splitfrag = fragment_a.split(fragment_b)
+                                    for sf in splitfrag:
+                                        if len(sf) > 29:
+                                            fragmentCount[sf] = fragmentCount[fragment_a]
+                                    fragmentCount.pop(fragment_a)
+
+                sharedVars.tasks["sequence-compare-" + timestamp]["messages"].append("Adding sequence fragments to database")
+                fragmentIndex = len(sharedVars.sequenceFragments)
+                for fragment in fragmentCount:
+                    sequenceFragmentName = "fragment_" + str(fragmentIndex)
+                    t = str(dt.utcnow().timestamp())
+                    sharedVars.sequenceFragments[sequenceFragmentName] = fragment
+                    sharedVars.tasks["sequence-fragment-add-" + t] = {
+                        "type" : "sequence-fragment-add",
+                        "startTime" : t,
+                        "sequenceFragmentName" : sequenceFragmentName,
+                        "status" : "running",
+                        "result" : None
+                    }
+                    def fragmentAddThread(sv, tm, sn):
+                        taskResults = sv.taskResults.dict()
+                        getModelProcess = Process(target=getModel, args=(sv.swissmodel, sv.sequenceFragments[sn], taskResults))
+                        getModelProcess.daemon = True
+                        getModelProcess.start()
+                        while getModelProcess.is_alive():
+                            time.sleep(1)
+                        sv.tasks["sequence-fragment-add-" + tm]["status"] = "completed"
+                        sv.saveModel(taskResults["getmodel_" + sv.sequenceFragments[sn]], sn)
+
+                    th = threading.Thread(target=fragmentAddThread, args=(sharedVars, t, sequenceFragmentName))
+                    th.daemon = True
+                    th.start()
+                    fragmentIndex += 1
 
                 sharedVars.tasks["sequence-compare-" + timestamp]["status"] = "completed"
  
@@ -172,28 +227,7 @@ class BackendView(flaskc.FlaskView):
     def sequence_fragment_add(self):
         requestForm = flask.request.get_json()
         if "sequenceFragment" in requestForm and "sequenceFragmentName" in requestForm:
-            timestamp = str(int(dt.utcnow().timestamp()))
-            self.sharedVars.sequenceFragments[requestForm["sequenceFragmentName"]] = requestForm["sequenceFragmentName"]
-            self.sharedVars.tasks["sequence-fragment-add-" + timestamp] = {
-                "type" : "sequence-fragment-add",
-                "startTime" : timestamp,
-                "sequenceFragmentName" : requestForm["sequenceFragmentName"],
-                "status" : "running",
-                "result" : None
-            }
-            def taskThread(sharedVars):
-                taskResults = sharedVars.taskResults.dict()
-                getModelProcess = Process(target=getModel, args=(sharedVars.swissmodel, sharedVars.sequenceFragments[requestForm["sequenceFragmentName"]], taskResults))
-                getModelProcess.daemon = True
-                getModelProcess.start()
-                while getModelProcess.is_alive():
-                    time.sleep(1)
-                sharedVars.tasks["sequence-fragment-add-" + timestamp]["status"] = "completed"
-                sharedVars.saveModel(taskResults["getmodel_" + sharedVars.sequenceFragments[requestForm["sequenceFragmentName"]]], requestForm["sequenceFragmentName"])
-
-            th = threading.Thread(target=taskThread, args=(self.sharedVars,))
-            th.daemon = True
-            th.start()
+            
             return flask.jsonify(self.sharedVars.tasks["sequence-fragment-add-" + timestamp] )
 
     @flaskc.route("/task/list", methods=["GET"])
