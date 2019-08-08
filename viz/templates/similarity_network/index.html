@@ -7,7 +7,47 @@
         {
             $("#compute").click(function()
             {
+                $.ajax
+                ({
+                    type: "POST",
+                    url: "/backend/sequence/compare",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: 'json',
+                    data: JSON.stringify({
+                        "sequenceNames": [
+                            {% for sequenceName in sequences %}
+                                ($("#{{sequenceName}}-checkbox").is(":checked") ? "{{sequenceName}}":""),
+                            {% endfor %}
+                        ]
+                    }),
+                    success: function(data){
+                        $.notify({
+                            icon: "add_alert",
+                            message: "Job started, computing fragments."
+                        },{
+                            type: 'danger',
+                            timer: 1000
+                        });
+                        
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        switch (jqXHR.status)
+                        {
+                            case 405:
+                                $.notify({
+                                    icon: "add_alert",
+                                    message: "The backend could not process your request."
 
+                                },{
+                                    type: 'danger',
+                                    timer: 1000
+                                });
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                });
             });
         })(window, document, window.jQuery);
     </script>
@@ -26,7 +66,7 @@
                             {% for sequenceName in sequences %}
                                 <div class="form-check">
                                     <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox" value="">
+                                        <input id="{{sequenceName}}-checkbox" class="form-check-input" type="checkbox" value="">
                                         {{sequenceName}}
                                         <span class="form-check-sign">
                                             <span class="check"></span>
