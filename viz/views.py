@@ -165,20 +165,23 @@ class BackendView(flaskc.FlaskView):
 
                 validFragments = list(fragmentCount.keys())
                 sharedVars.tasks["sequence-compare-" + timestamp]["messages"].append("Checking for maximal containment between fragments")
+                print(len(validFragments))
                 for fragment_a in validFragments:
-                    for fragment_b in validFragments:
-                        if fragment_a in fragmentCount and fragment_b in fragmentCount:
-                            if len(fragment_b) < len(fragment_a) and (fragment_a.find(fragment_b) > -1):
-                                if fragmentCount[fragment_a] == fragmentCount[fragment_b]:
-                                    fragmentCount.pop(fragment_b)
-                                else:
-                                    splitfrag = fragment_a.split(fragment_b)
-                                    for sf in splitfrag:
-                                        if len(sf) > 29:
-                                            fragmentCount[sf] = fragmentCount[fragment_a]
-                                    fragmentCount.pop(fragment_a)
-
-                sharedVars.tasks["sequence-compare-" + timestamp]["messages"].append("Adding sequence fragments to database")
+                    if fragment_a in fragmentCount:
+                        for fragment_b in validFragments:
+                            if fragment_b in fragmentCount:
+                                if fragment_a in fragmentCount and fragment_b in fragmentCount:
+                                    if len(fragment_b) < len(fragment_a) and (fragment_a.find(fragment_b) > -1):
+                                        if fragmentCount[fragment_a] == fragmentCount[fragment_b]:
+                                            fragmentCount.pop(fragment_b)
+                                        else:
+                                            splitfrag = fragment_a.split(fragment_b)
+                                            for sf in splitfrag:
+                                                if len(sf) > 29:
+                                                    fragmentCount[sf] = fragmentCount[fragment_a]
+                                            fragmentCount.pop(fragment_a)
+                
+                sharedVars.tasks["sequence-compare-" + timestamp]["messages"].append("Adding shared sequence fragments to database")
                 fragmentIndex = len(sharedVars.sequenceFragments)
                 for fragment in fragmentCount:
                     sequenceFragmentName = "fragment_" + str(fragmentIndex)
@@ -205,7 +208,7 @@ class BackendView(flaskc.FlaskView):
                     th.daemon = True
                     th.start()
                     fragmentIndex += 1
-
+                
                 sharedVars.tasks["sequence-compare-" + timestamp]["status"] = "completed"
  
             th = threading.Thread(target=taskThread, args=(self.sharedVars,))
@@ -223,6 +226,39 @@ class BackendView(flaskc.FlaskView):
                 return flask.send_file(pdbPath, attachment_filename='model.pdb', mimetype="chemical/x-pdb")
         return flask.abort(404)
 
+    @flaskc.route("/sequence/graph", methods=["GET"])
+    def sequence_graph(self):
+        nodes = []
+        links = []
+        for sequenceName in self.sharedVars.sequences:
+            splitSequence = [self.sharedVars.sequences[sequenceName]]
+            for f in self.sharedVars.sequenceFragments.values():
+                sscopy = splitSequence[:]
+                for s in sscopy:
+                    if len(s) > len(f):
+                        i = splitSequence.index(s)
+                        ssplit = s.split(f)
+                        if len(ssplit) > 1:
+                            del splitSequence[i]
+                            j = 0
+                            for ss in ssplit:
+                                if len(ss) > 0:
+                                    splitSequence.insert(i + j, ss)
+                                    splitSequence.insert(i + j + 1, f)
+                                    j += 2
+                                else:
+                                    splitSequence.insert(i + j, f)
+                                    j += 1
+            for i in range(1, len(splitSequence)):
+                if splitSequence[i - 1] not in nodes:
+                    nodes.append(splitSequence[i - 1])
+                if splitSequence[i] not in nodes:
+                    nodes.append(splitSequence[i])
+                source = nodes.index(splitSequence[i - 1])
+                target = nodes.index(splitSequence[i])
+                links.append({"source" : source, "target": target, "group": sequenceName})
+        return flask.jsonify({"nodes": [{"id" : i, "sequence": nodes[i], "type": ("residue" if nodes[i] not in self.sharedVars.sequenceFragments.values() else "fragment")} for i in range(len(nodes))], "links": links})
+        
     @flaskc.route("/sequence/fragment/add", methods=["GET"])
     def sequence_fragment_add(self):
         requestForm = flask.request.get_json()
