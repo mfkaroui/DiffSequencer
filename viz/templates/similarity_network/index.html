@@ -5,6 +5,45 @@
     <script>
         (function(window, document, $, undefined)
         {
+            var subLinks = 3;
+            $.get("/backend/sequence/graph", function(graph)
+            {
+                let newLinks = [];
+                $.each(graph.links, function(linkIndex, link){
+                    
+                    let lastTarget = link.source;
+                    for(let i = 0; i < subLinks; i++)
+                    {
+                        if (i < subLinks - 1)
+                        {
+                            let newNode = {
+                                id: graph.nodes.length, 
+                                sequence: "", 
+                                type: "subnode"
+                            };
+                            graph.nodes.push(newNode);
+                            newLinks.push({
+                                group: link.group,
+                                source: lastTarget,
+                                target: newNode.id
+                            });
+                            lastTarget = newNode.id;
+                        }
+                        else
+                        {
+                            newLinks.push({
+                                group: link.group,
+                                source: lastTarget,
+                                target: link.target
+                            });
+                        }
+                    }
+                    
+                });
+                graph.links = newLinks;
+                let simGraph = ForceGraph3D();
+                simGraph($("#similarityGraph")[0]).d3VelocityDecay(0.1).width($("#similarityGraph").width()).height(500).nodeAutoColorBy("type").nodeVal((n) => {return n.sequence.length * 4}).linkOpacity(1).linkDirectionalParticles(3).linkDirectionalParticleWidth(2).linkLabel('group').linkAutoColorBy('group').graphData(graph);
+            });
             $("#compute").click(function()
             {
                 $.ajax
@@ -25,10 +64,10 @@
                             icon: "add_alert",
                             message: "Job started, computing fragments."
                         },{
-                            type: 'danger',
+                            type: 'success',
                             timer: 1000
                         });
-                        
+
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
                         switch (jqXHR.status)
@@ -97,8 +136,8 @@
                 <div class="card-header card-header-info">
                     Similarity Network
                 </div>
-                <div class="card-body">
-                    
+                <div class="card-body" id="similarityGraph">
+                        
                 </div>
             </div>
         </div>
