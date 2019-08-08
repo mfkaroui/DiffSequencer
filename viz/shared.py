@@ -33,9 +33,9 @@ class Shared(object):
                     modelReportSerialized = modelReportFile.read()
                     modelReportDeserialized = json.loads(modelReportSerialized)
                     if f.startswith("fragment_"):
-                        self.sequenceFragments[f] = modelReportDeserialized["modelling"]["trg_seq"]
+                        self.sequenceFragments[f] = modelReportDeserialized["modelling"]["trg_seq"].replace("-","")
                     else:
-                        self.sequences[f] = modelReportDeserialized["modelling"]["trg_seq"]
+                        self.sequences[f] = modelReportDeserialized["modelling"]["trg_seq"].replace("-","")
 
         
 
