@@ -24,7 +24,7 @@ class Shared(object):
         self.tasks = {}
         self.taskResults = Manager()
         self.sequences = {}
-
+        self.sequenceFragments = {}
         for f in os.listdir(self.outputPath):
             fullPath = os.path.join(self.outputPath, f)
             if os.path.isdir(fullPath) and "report.html" in list(os.listdir(fullPath)):
@@ -32,9 +32,12 @@ class Shared(object):
                     modelReportFile.seek(0)
                     modelReportSerialized = modelReportFile.read()
                     modelReportDeserialized = json.loads(modelReportSerialized)
-                    self.sequences[f] = modelReportDeserialized["modelling"]["trg_seq"]
+                    if f.startswith("fragment_"):
+                        self.sequenceFragments[f] = modelReportDeserialized["modelling"]["trg_seq"]
+                    else:
+                        self.sequences[f] = modelReportDeserialized["modelling"]["trg_seq"]
 
-        self.sequenceFragments = {}
+        
 
         self.app = app
 
