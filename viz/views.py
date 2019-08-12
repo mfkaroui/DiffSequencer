@@ -27,6 +27,22 @@ def extractFragments(sequence, n):
 def compareSequenceToFragment(sequence, fragment):
     return (sequence.find(fragment) > -1)
 
+def computeMaximalContainment(fragment_a, fragmentCount):
+    fragmentsToPOP = []
+    fragmentsToPUSH = []
+    for fragment_b in fragmentCount:
+        if len(fragment_b) < len(fragment_a) and (fragment_a.find(fragment_b) > -1):
+            if fragmentCount[fragment_a] == fragmentCount[fragment_b]:
+                fragmentCount.pop(fragment_b)
+            else:
+                splitfrag = fragment_a.split(fragment_b)
+                for sf in splitfrag:
+                    if len(sf) > 29 and sf not in fragmentsToPUSH:
+                        fragmentsToPUSH.append(sf)
+                if fragment_a not in fragmentsToPOP:
+                    fragmentsToPOP.append(fragment_a)
+    return [fragmentsToPUSH, fragmentsToPOP]
+
 class MainView(flaskc.FlaskView):
     route_base = "/"
 
@@ -164,20 +180,17 @@ class BackendView(flaskc.FlaskView):
                 validFragments = list(fragmentCount.keys())
                 sharedVars.tasks["sequence-compare-" + timestamp]["messages"].append("Checking for maximal containment between fragments")
                 print(len(validFragments))
-                for fragment_a in validFragments:
-                    if fragment_a in fragmentCount:
-                        for fragment_b in validFragments:
-                            if fragment_b in fragmentCount:
-                                if fragment_a in fragmentCount and fragment_b in fragmentCount:
-                                    if len(fragment_b) < len(fragment_a) and (fragment_a.find(fragment_b) > -1):
-                                        if fragmentCount[fragment_a] == fragmentCount[fragment_b]:
-                                            fragmentCount.pop(fragment_b)
-                                        else:
-                                            splitfrag = fragment_a.split(fragment_b)
-                                            for sf in splitfrag:
-                                                if len(sf) > 29:
-                                                    fragmentCount[sf] = fragmentCount[fragment_a]
-                                            fragmentCount.pop(fragment_a)
+                pool = mpp(sharedVars.nworkers)
+                taskResults = pool.starmap(computeMaximalContainment, zip(validFragments, it.repeat(fragmentCount)))
+                for taskResult in taskResults:
+                    for fragmentToAdd in taskResult[0]:
+                        fragmentCount[fragmentToAdd] = 2
+                    for fragmentToRemove in taskResult[0]:
+                        fragmentCount.pop(fragmentToRemove)
+                pool.close()
+                pool.join()
+                del pool
+                 
                 
                 sharedVars.tasks["sequence-compare-" + timestamp]["messages"].append("Adding shared sequence fragments to database")
                 fragmentIndex = len(sharedVars.sequenceFragments)
@@ -254,13 +267,6 @@ class BackendView(flaskc.FlaskView):
                 target = nodes.index(splitSequence[i])
                 links.append({"source" : source, "target": target, "group": sequenceName})
         return flask.jsonify({"nodes": [{"id" : i, "sequence": nodes[i], "type": ("residue" if nodes[i] not in self.sharedVars.sequenceFragments.values() else "fragment")} for i in range(len(nodes))], "links": links})
-        
-    @flaskc.route("/sequence/fragment/add", methods=["GET"])
-    def sequence_fragment_add(self):
-        requestForm = flask.request.get_json()
-        if "sequenceFragment" in requestForm and "sequenceFragmentName" in requestForm:
-            
-            return flask.jsonify(self.sharedVars.tasks["sequence-fragment-add-" + timestamp] )
 
     @flaskc.route("/task/list", methods=["GET"])
     def task_list(self):
