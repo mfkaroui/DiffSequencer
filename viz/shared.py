@@ -2,7 +2,6 @@ import json
 import psutil as psu
 import os
 from swissmodel import SwissModel
-from multiprocessing import Manager
 
 class Shared(object):
     
@@ -22,7 +21,6 @@ class Shared(object):
 
         self.swissmodel = SwissModel()
         self.tasks = {}
-        self.taskResults = Manager()
         self.sequences = {}
         self.sequenceFragments = {}
         for f in os.listdir(self.outputPath):
@@ -37,15 +35,11 @@ class Shared(object):
                     else:
                         self.sequences[f] = modelReportDeserialized["modelling"]["trg_seq"].replace("-","")
 
-        
-
-        self.app = app
-
         def get_hardware_stats():
             return self.getHardwareStats()
-        self.app.jinja_env.globals.update(getHardwareStats=get_hardware_stats)
-        self.app.jinja_env.globals.update(sequences=self.sequences)
-        self.app.jinja_env.globals.update(sequenceFragments=self.sequenceFragments)
+        app.jinja_env.globals.update(getHardwareStats=get_hardware_stats)
+        app.jinja_env.globals.update(sequences=self.sequences)
+        app.jinja_env.globals.update(sequenceFragments=self.sequenceFragments)
 
     def getHardwareStats(self):
         return {

@@ -11,10 +11,10 @@ from datetime import datetime as dt
 import time
 import sys
 
-def getModel(sm, s, result):
-    projectID, response, templates = sm.searchTemplates(s)
+def getModel(sv, s, name):
+    projectID, response, templates = sv.swissmodel.searchTemplates(s)
     templates.sort(key=lambda t: float(t["comment"]["prob"]) if "prob" in t["comment"] else 0.0)
-    result["getmodel_" + s] = sm.buildModel(projectID, templates[0]["id"])
+    sv.saveModel(sv.swissmodel.buildModel(projectID, templates[0]["id"]), name)
 
 def extractFragments(sequence, n):
     fragments = []
@@ -95,14 +95,12 @@ class BackendView(flaskc.FlaskView):
                 "status" : "running"
             }
             def taskThread(sharedVars):
-                taskResults = sharedVars.taskResults.dict()
-                getModelProcess = Process(target=getModel, args=(sharedVars.swissmodel, sharedVars.sequences[requestForm["sequenceName"]], taskResults))
+                getModelProcess = Process(target=getModel, args=(sharedVars, sharedVars.sequences[requestForm["sequenceName"]], requestForm["sequenceName"]))
                 getModelProcess.daemon = True
                 getModelProcess.start()
                 while getModelProcess.is_alive():
                     time.sleep(1)
                 sharedVars.tasks["sequence-add-" + timestamp]["status"] = "completed"
-                sharedVars.saveModel(taskResults["getmodel_" + sharedVars.sequences[requestForm["sequenceName"]]], requestForm["sequenceName"])
 
             th = threading.Thread(target=taskThread, args=(self.sharedVars,))
             th.daemon = True
@@ -195,14 +193,12 @@ class BackendView(flaskc.FlaskView):
                         "result" : None
                     }
                     def fragmentAddThread(sv, tm, sn):
-                        taskResults = sv.taskResults.dict()
-                        getModelProcess = Process(target=getModel, args=(sv.swissmodel, sv.sequenceFragments[sn], taskResults))
+                        getModelProcess = Process(target=getModel, args=(sv, sv.sequenceFragments[sn], sn))
                         getModelProcess.daemon = True
                         getModelProcess.start()
                         while getModelProcess.is_alive():
                             time.sleep(1)
                         sv.tasks["sequence-fragment-add-" + tm]["status"] = "completed"
-                        sv.saveModel(taskResults["getmodel_" + sv.sequenceFragments[sn]], sn)
 
                     th = threading.Thread(target=fragmentAddThread, args=(sharedVars, t, sequenceFragmentName))
                     th.daemon = True
@@ -282,4 +278,4 @@ def initializeViews(workingDIR):
     variables = shared.Shared(app, os.path.join(workingDIR, "output/"), os.path.join(workingDIR, "data/config.json"))
     MainView.register(app, init_argument=variables)
     BackendView.register(app, init_argument=variables)
-    app.run(host="0.0.0.0", port="1337", debug=True)
+    app.run(host="0.0.0.0", port="1337", debug=False)
