@@ -33,7 +33,7 @@ def computeMaximalContainment(fragment_a, fragmentCount):
     for fragment_b in fragmentCount:
         if len(fragment_b) < len(fragment_a) and (fragment_a.find(fragment_b) > -1):
             if fragmentCount[fragment_a] == fragmentCount[fragment_b]:
-                fragmentCount.pop(fragment_b)
+                fragmentsToPOP.append(fragment_b)
             else:
                 splitfrag = fragment_a.split(fragment_b)
                 for sf in splitfrag:
@@ -186,7 +186,8 @@ class BackendView(flaskc.FlaskView):
                     for fragmentToAdd in taskResult[0]:
                         fragmentCount[fragmentToAdd] = 2
                     for fragmentToRemove in taskResult[0]:
-                        fragmentCount.pop(fragmentToRemove)
+                        if fragmentToRemove in fragmentCount:
+                            fragmentCount.pop(fragmentToRemove)
                 pool.close()
                 pool.join()
                 del pool
